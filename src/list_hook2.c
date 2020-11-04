@@ -6,13 +6,13 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 16:48:13 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/04 00:14:12 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/04 17:53:49 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void		what_init(t_frctl *f)
+void		what_init(t_frac *f)
 {
 	if (f->type_fract == MAND1)
 		mand_init(f);
@@ -38,9 +38,9 @@ void		what_init(t_frctl *f)
 
 int			mouse_move(int x, int y, void *param)
 {
-	t_frctl	*f;
+	t_frac	*f;
 
-	f = (t_frctl *)param;
+	f = (t_frac *)param;
 	f->mouse.prew_x = f->mouse.x;
 	f->mouse.prew_y = f->mouse.y;
 	f->mouse.x = x;
@@ -62,7 +62,7 @@ int			mouse_move(int x, int y, void *param)
 	return (0);
 }
 
-void		keys0(int key, t_frctl *f)
+void		keys0(int key, t_frac *f)
 {
 	if (key == KEY_ESC)
 		close_win(f);
@@ -76,9 +76,17 @@ void		keys0(int key, t_frctl *f)
 		switch_color(f, key);
 	else if (key == KEY_T || key == KEY_H || key == KEY_N)
 		switch_area(f, key);
+	else if (key == KEY_M)
+		f->smuze = !f->smuze;
+	else if (key == KEY_DELL)
+	{
+		what_init(f);
+		calc_plur(f);
+	}
+
 }
 
-void		keys1(int key, t_frctl *f)
+void		keys1(int key, t_frac *f)
 {
 	if (key == KEY_MINUS || key == KEY_PLUS)
 	{
@@ -104,9 +112,9 @@ void		keys1(int key, t_frctl *f)
 
 int			key_press(int key, void *param)
 {
-	t_frctl	*f;
+	t_frac	*f;
 
-	f = (t_frctl *)param;
+	f = (t_frac *)param;
 	keys0(key, f);
 	keys1(key, f);
 	return (0);

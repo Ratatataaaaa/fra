@@ -6,13 +6,13 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/08 19:59:41 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/03 19:22:29 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/04 20:16:38 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void			julia_dezoom(t_frctl *f, int x, int y)
+void			julia_dezoom(t_frac *f, int x, int y)
 {
 	t_complex	m;
 
@@ -22,15 +22,10 @@ void			julia_dezoom(t_frctl *f, int x, int y)
 	f->range_move *= 1.50;
 	f->jx = m.real - x / f->zoom;
 	f->jy = m.imag - y / f->zoom;
-	// f->max_iter -= 3;
-	// if (f->max_iter < 10)
-	// 	f->max_iter = 10;
-	// if (f->max_iter > INT_MAX)
-	// 	f->max_iter = INT_MAX;
 	calc_plur(f);
 }
 
-void			julia_zoom(t_frctl *f, int x, int y)
+void			julia_zoom(t_frac *f, int x, int y)
 {
 	t_complex	m;
 
@@ -40,15 +35,10 @@ void			julia_zoom(t_frctl *f, int x, int y)
 	f->range_move /= 1.50;
 	f->jx = m.real - x / f->zoom;
 	f->jy = m.imag - y / f->zoom;
-	// f->max_iter += 3;
-	// if (f->max_iter < 10)
-	// 	f->max_iter = 10;
-	// if (f->max_iter > INT_MAX)
-	// 	f->max_iter = INT_MAX;
 	calc_plur(f);
 }
 
-void			other_dezoom(t_frctl *f, int x, int y)
+void			other_dezoom(t_frac *f, int x, int y)
 {
 	t_complex	m;
 
@@ -58,15 +48,10 @@ void			other_dezoom(t_frctl *f, int x, int y)
 	f->range_move *= 1.1;
 	f->cx = m.real - x / f->zoom;
 	f->cy = m.imag - y / f->zoom;
-	// f->max_iter -= 1;
-	// if (f->max_iter < 10)
-	// 	f->max_iter = 10;
-	// if (f->max_iter > INT_MAX)
-	// 	f->max_iter = INT_MAX;
 	calc_plur(f);
 }
 
-void			other_zoom(t_frctl *f, int x, int y)
+void			other_zoom(t_frac *f, int x, int y)
 {
 	t_complex	m;
 
@@ -76,19 +61,15 @@ void			other_zoom(t_frctl *f, int x, int y)
 	f->range_move /= 1.1;
 	f->cx = m.real - x / f->zoom;
 	f->cy = m.imag - y / f->zoom;
-	// f->max_iter += 1;
-	// if (f->max_iter < 10)
-	// 	f->max_iter = 10;
-	// if (f->max_iter > INT_MAX)
-	// 	f->max_iter = INT_MAX;
+	f->pxl *= 0.9;
 	calc_plur(f);
 }
 
 int				mouse_key(int button, int x, int y, void *param)
 {
-	t_frctl		*f;
+	t_frac		*f;
 
-	f = (t_frctl *)param;
+	f = (t_frac *)param;
 	if (button == 4)
 	{
 		if (f->type_fract == JULIA)

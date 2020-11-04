@@ -6,16 +6,16 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 16:18:51 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/03 18:09:57 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/04 19:20:48 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void				put_menu_plur_change_color_switch(t_frctl *f)
+void				put_menu_plur_change_color_switch(t_frac *f)
 {
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-	0x00ff00, "--------------------");
+	0x00ff00, "==================");
 	if (f->clr_sw.plur == 1)
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
 		0xffffff, "'H' - Clr_Plur ON");
@@ -36,10 +36,10 @@ void				put_menu_plur_change_color_switch(t_frctl *f)
 		0xffffff, "'T' - Clr_Backgr OFF");
 }
 
-void				put_menu_keycode(t_frctl *f)
+void				put_menu_keycode(t_frac *f)
 {
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-	0x00ff00, "--------------------");
+	0x00ff00, "==================");
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
 	0xffffff, "'E' - Thread + ");
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
@@ -49,7 +49,7 @@ void				put_menu_keycode(t_frctl *f)
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
 	0xffffff, "'{' - Itter - ");
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-	0x00ff00, "--------------------");
+	0x00ff00, "==================");
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
 	0xffffff, "'A,W,D,S' - Shift_Plur ");
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
@@ -61,19 +61,22 @@ void				put_menu_keycode(t_frctl *f)
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
 		0xffffff, "'Space' Move Plur OFF");
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0x00ff00, "--------------------");
+	0x00ff00, "==================");
 }
 
-void				put_menu_status_plur(t_frctl *f)
+void				put_menu_status_plur(t_frac *f)
 {
 	char			*str;
 
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-	0x00ff00, "--------------------");
+	0x00ff00, "==================");
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
 	0xffffff, "Itter - ");
 	mlx_string_put(f->ptr, f->win, f->menu.x + 80, f->menu.y,
 	0xffffff, (str = ft_itoa(f->max_iter)));
+	if (f->max_iter == 10)
+		mlx_string_put(f->ptr, f->win, f->menu.x + 110, f->menu.y,
+		0xffffff, "min");
 	free(str);
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
 	0xffffff, "Threads - ");
@@ -82,7 +85,7 @@ void				put_menu_status_plur(t_frctl *f)
 	free(str);
 }
 
-void				put_menu_color_switch(t_frctl *f)
+void				put_menu_color_switch(t_frac *f)
 {
 	if (f->clr_sw.red == 1)
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
@@ -104,7 +107,7 @@ void				put_menu_color_switch(t_frctl *f)
 		0x0000bb, "'B' - Blue_Canal OFF");
 }
 
-void				put_menu(t_frctl *f)
+void				put_menu(t_frac *f)
 {
 	int				*image;
 	register int	i;

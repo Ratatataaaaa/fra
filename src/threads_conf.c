@@ -6,13 +6,13 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:29:15 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/03 19:51:58 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/04 18:14:56 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void			switch_plur(t_frctl *f)
+void			switch_plur(t_frac *f)
 {
 	if (f->type_fract == MAND1)
 		mlx_string_put(f->ptr, f->win, f->menu.x + 50, f->menu.y += 25,
@@ -57,7 +57,7 @@ t_complex		init_mand5(t_complex z)
 	return (z2);
 }
 
-t_complex		mand_who(t_frctl *f, t_complex z)
+t_complex		mand_who(t_frac *f, t_complex z)
 {
 	t_complex	z2;
 
@@ -78,10 +78,10 @@ t_complex		mand_who(t_frctl *f, t_complex z)
 	return (z2);
 }
 
-void			calc_plur(t_frctl *f)
+void			calc_plur(t_frac *f)
 {
 	pthread_t	tid[f->threads];
-	t_frctl		cur[f->threads];
+	t_frac		cur[f->threads];
 	int			i;
 	double		w_w;
 
@@ -89,12 +89,11 @@ void			calc_plur(t_frctl *f)
 	w_w = WIDTH_WIN - WIDTH_MENU;
 	while (++i < f->threads)
 	{
-		ft_memcpy((void *)&cur[i], (void *)f, sizeof(t_frctl));
+		ft_memcpy((void *)&cur[i], (void *)f, sizeof(t_frac));
 		cur[i].cur_y = ((1.00 / f->threads) * w_w) * (i);
 		cur[i].max_y = ((1.00 / f->threads) * w_w) * (i + 1);
 	}
 	i = 0;
-	//output_background(f, 0);
 	while (i < f->threads)
 	{
 		pthread_create(&tid[i], NULL, draw_plur, &cur[i]);

@@ -6,13 +6,13 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 22:27:49 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/03 23:49:25 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/04 20:33:44 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void		mand_init(t_frctl *ptr)
+void		mand_init(t_frac *ptr)
 {
 	ptr->zoom = 300.00;
 	ptr->cx = -(WIDTH_WIN - WIDTH_MENU) / 2 / ptr->zoom - 0.5;
@@ -29,7 +29,7 @@ void		mand_init(t_frctl *ptr)
 	ptr->colors = cache_colors(ptr);
 }
 
-void		fire_ship_init(t_frctl *ptr)
+void		fire_ship_init(t_frac *ptr)
 {
 	ptr->type_fract = SHIP;
 	ptr->zoom = 310.00;
@@ -47,7 +47,7 @@ void		fire_ship_init(t_frctl *ptr)
 	ptr->colors = cache_colors(ptr);
 }
 
-void		newton_init(t_frctl *ptr)
+void		newton_init(t_frac *ptr)
 {
 	ptr->type_fract = NEWTON;
 	ptr->zoom = 320.00;
@@ -61,11 +61,14 @@ void		newton_init(t_frctl *ptr)
 	ptr->color.plur = COLOR_BLACK;
 	ptr->color.start = COLOR_BLACK;
 	ptr->color.final = COLOR_BLUE;
+	ptr->pxl = 0.005;
+	ptr->eps = 0.1;
+	ptr->dpi = M_PI / 5;
 	ptr->colors = NULL;
 	ptr->colors = cache_colors(ptr);
 }
 
-void		julia_init(t_frctl *ptr)
+void		julia_init(t_frac *ptr)
 {
 	ptr->type_fract = JULIA;
 	ptr->zoom = 320.00;
@@ -85,7 +88,7 @@ void		julia_init(t_frctl *ptr)
 	ptr->colors = cache_colors(ptr);
 }
 
-void		put_menu_color_type(t_frctl *f)
+void		put_menu_color_type(t_frac *f)
 {
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
 	0xffffff, "'+/=' - Color + ");
@@ -101,7 +104,7 @@ void		put_menu_color_type(t_frctl *f)
 	0xffffff, "'X' - Plur + ");
 }
 
-void		init_mlx(t_frctl *ptr, char *av)
+void		init_mlx(t_frac *ptr, char *av)
 {
 	if (!(ptr->ptr = mlx_init()))
 		error_exit("\033[0;31;1mError mlx_init\033[0m");
@@ -110,13 +113,13 @@ void		init_mlx(t_frctl *ptr, char *av)
 	if (!(ptr->img = mlx_new_image(ptr->ptr, WIDTH_WIN - WIDTH_MENU,
 		HEIGHT_WIN)))
 		error_exit("\033[0;31;1mError img_init\033[0m");
-	if (!(ptr->data_addr = mlx_get_data_addr(ptr->img, &(ptr->bits_per_pixel),
+	if (!(ptr->data_addr = mlx_get_data_addr(ptr->img, &(ptr->bp_pix),
 		&(ptr->size_line), &(ptr->endian))))
 		error_exit("\033[0;31;1mError img_init\033[0m");
 	if (!(ptr->menu.img = mlx_new_image(ptr->ptr, WIDTH_MENU, HEIGHT_MENU)))
 		error_exit("\033[0;31;1mError img_init\033[0m");
 	ptr->menu.data_addr = mlx_get_data_addr(ptr->menu.img,
-	&(ptr->menu.bits_per_pixel), &(ptr->menu.size_line), &(ptr->menu.endian));
+	&(ptr->menu.bp_pix), &(ptr->menu.size_line), &(ptr->menu.endian));
 	ptr->color.interpol = 1;
 	ptr->range_move = 0.01;
 	ptr->max_iter = 50;

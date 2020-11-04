@@ -6,13 +6,13 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 21:56:30 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/04 00:15:56 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/04 18:21:19 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void		switch_plur2(t_frctl *f)
+void		switch_plur2(t_frac *f)
 {
 	if (f->type_fract == MAND8)
 		mlx_string_put(f->ptr, f->win, f->menu.x + 50, f->menu.y += 25,
@@ -24,7 +24,7 @@ void		switch_plur2(t_frctl *f)
 		mlx_string_put(f->ptr, f->win, f->menu.x + 50, f->menu.y += 25,
 		0xffffff, "Fire_Ship");
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-	0x00ff00, "--------------------");
+	0x00ff00, "==================");
 }
 
 void		error_exit(char *str)
@@ -33,7 +33,7 @@ void		error_exit(char *str)
 	exit(0);
 }
 
-t_pixel		*cache_colors(t_frctl *f)
+t_pixel		*cache_colors(t_frac *f)
 {
 	int		i;
 
@@ -59,11 +59,11 @@ t_pixel		*cache_colors(t_frctl *f)
 
 int			main(int ac, char **av)
 {
-	t_frctl	*f;
+	t_frac	*f;
 
 	if (ac == 2)
 	{
-		if (!(f = (t_frctl *)ft_memalloc(sizeof(t_frctl))))
+		if (!(f = (t_frac *)ft_memalloc(sizeof(t_frac))))
 			error_exit("\033[0;31;1mError malloc by [s_frctl]\033[0m");
 		f->count_window = 0;
 		init_mlx(f, (f->name = av[1]));

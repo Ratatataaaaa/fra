@@ -6,14 +6,14 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 19:51:36 by kain2250          #+#    #+#             */
-/*   Updated: 2020/11/03 18:06:05 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/04 20:04:29 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLORLIST_H
 # define COLORLIST_H
 
-# define COLOR_RED (t_pixel){255, 0, 0, 1}
+# define COLOR_RED (t_pixel){0, 0, 255, 1}
 # define COLOR_FIREBRICK (t_pixel){255, 0, 0, 1}
 # define COLOR_DARKRED (t_pixel){255, 0, 0, 1}
 # define COLOR_MAROON (t_pixel){255, 0, 0, 1}
@@ -39,7 +39,7 @@
 # define COLOR_CHOCOLATE (t_pixel){255, 0, 0, 1}
 # define COLOR_SADDLEBROWN (t_pixel){255, 0, 0, 1}
 
-# define COLOR_BLACK (t_pixel){0, 0, 0, 1}
+# define COLOR_BLACK (t_pixel){0, 0, 0, 0}
 # define COLOR_GRAY (t_pixel){255, 0, 0, 1}
 # define COLOR_SILVER (t_pixel){255, 0, 0, 1}
 # define COLOR_WHITE (t_pixel){255, 255, 255, 1}
@@ -55,7 +55,7 @@
 # define COLOR_STEELBLUE (t_pixel){255, 0, 0, 1}
 # define COLOR_DEEPSKYBLUE (t_pixel){255, 0, 0, 1}
 # define COLOR_DODGERBLUE (t_pixel){255, 0, 0, 1}
-# define COLOR_BLUE	(t_pixel){0, 0, 255, 1}
+# define COLOR_BLUE	(t_pixel){255, 0, 0, 0}
 # define COLOR_DARKBLE (t_pixel){255, 0, 0, 1}
 # define COLOR_DEEPSPACEBLUE (t_pixel){255, 0, 0, 1}
 

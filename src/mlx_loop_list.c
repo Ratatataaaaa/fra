@@ -6,13 +6,13 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 22:28:46 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/03 23:53:12 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/04 17:53:49 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void		key_img_move(t_frctl *f, int key)
+void		key_img_move(t_frac *f, int key)
 {
 	if (f->type_fract == JULIA)
 	{
@@ -39,7 +39,7 @@ void		key_img_move(t_frctl *f, int key)
 	calc_plur(f);
 }
 
-void		iter_plus(t_frctl *f, int key)
+void		iter_plus(t_frac *f, int key)
 {
 	if (key == KEY_BRACKETCLOSE)
 		f->max_iter += 10;
@@ -53,7 +53,7 @@ void		iter_plus(t_frctl *f, int key)
 	calc_plur(f);
 }
 
-void		swap_plur(t_frctl *f, int key)
+void		swap_plur(t_frac *f, int key)
 {
 	if ((key == KEY_Z) && (f->type_fract != 1))
 	{
@@ -68,7 +68,7 @@ void		swap_plur(t_frctl *f, int key)
 	calc_plur(f);
 }
 
-void		key_z_move(t_frctl *f, int key)
+void		key_z_move(t_frac *f, int key)
 {
 	if (f->type_fract != JULIA)
 	{
@@ -95,7 +95,7 @@ void		key_z_move(t_frctl *f, int key)
 	calc_plur(f);
 }
 
-void		mlx_loop_list(t_frctl *f)
+void		mlx_loop_list(t_frac *f)
 {
 	mlx_hook(f->win, 2, (1L << 1), key_press, f);
 	mlx_hook(f->win, 17, 1, cls, f);

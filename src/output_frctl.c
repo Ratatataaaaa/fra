@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 22:25:25 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/04 00:18:47 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/04 18:10:13 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static uint8_t	get_light(uint8_t start, uint8_t end, double percentage)
 	return (ret);
 }
 
-t_pixel			get_color(int i, t_pixel start, t_pixel end, t_frctl *f)
+t_pixel			get_color(int i, t_pixel start, t_pixel end, t_frac *f)
 {
 	t_pixel		pixel;
 	double		percentage;
@@ -33,26 +33,26 @@ t_pixel			get_color(int i, t_pixel start, t_pixel end, t_frctl *f)
 	return (pixel);
 }
 
-void		put_pixel(int x, int y, t_frctl *f, t_pixel color)
+void		put_pixel(int x, int y, t_frac *f, t_pixel color)
 {
 	int		i;
 
 	if (x > 0 && x < (WIDTH_WIN - WIDTH_MENU) && y >= 0 && y < HEIGHT_WIN)
 	{
-		i = (x * f->bits_per_pixel / 8) + (y * f->size_line);
+		i = (x * f->bp_pix / 8) + (y * f->size_line);
 		f->data_addr[i] = color.red;
 		f->data_addr[++i] = color.green;
 		f->data_addr[++i] = color.blue;
-		f->data_addr[++i] = 0;
+		f->data_addr[++i] = (f->smuze) ? color.alfa : 0;
 	}
 }
 
-void		output_background(t_frctl *f, int menu_or_img)
+void		output_background(t_frac *f, int menu_or_img)
 {
 	if (menu_or_img == 1)
 		ft_bzero(f->menu.data_addr, WIDTH_MENU * HEIGHT_MENU *
-		(f->menu.bits_per_pixel / 8));
+		(f->menu.bp_pix / 8));
 	else
 		ft_bzero(f->data_addr, (WIDTH_WIN - WIDTH_MENU) * HEIGHT_WIN *
-		(f->bits_per_pixel / 8));
+		(f->bp_pix / 8));
 }
