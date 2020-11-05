@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/07 17:29:15 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/05 13:27:56 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/05 13:35:55 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void			switch_plur(t_frac *f)
 {
-	if (f->type_fract == MAND1)
+	if (f->type_fract == MAND)
 		mlx_string_put(f->ptr, f->win, f->menu.x + 50, f->menu.y += 25,
 		0xffffff, "Mandelbrot");
 	else if (f->type_fract == JULIA)

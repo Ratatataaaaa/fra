@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 22:27:49 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/05 13:15:42 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/05 13:35:55 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void		mand_init(t_frac *ptr)
 {
+	ptr->type_fract = MAND;
 	ptr->zoom = 300.00;
 	ptr->cx = -(WIDTH_WIN - WIDTH_MENU) / 2 / ptr->zoom - 0.5;
 	ptr->cy = -HEIGHT_MENU / 2 / ptr->zoom ;
@@ -125,5 +126,5 @@ void		init_mlx(t_frac *ptr, char *av)
 	ptr->clr_sw.start = -1;
 	ptr->clr_sw.plur = -1;
 	ptr->clr_sw.final = -1;
-	ptr->type_fract = MAND1;
+	ptr->type_fract = MAND;
 }

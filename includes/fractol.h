@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 21:47:25 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/05 13:23:04 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/05 13:35:55 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define GREEN_STEP 0x000900
 # define BLUE_STEP 0x000009
 
-# define MAND1 1
+# define MAND 1
 # define SHIP 2
 # define NEWTON 3
 # define JULIA 4

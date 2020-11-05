@@ -6,57 +6,67 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 22:48:44 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/04 20:44:25 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/05 14:37:28 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void newton_calc(t_cord crd, t_frac *f)
+void newton_calc(t_cord crd, t_frac *f, t_complex z)
 {
-	double x = (crd.x - X0) * f->pxl;
-	double y = (crd.y - Y0) * f->pxl;
-	complex double z = x + I * y;
-	if (x || y)
-	{
-		double complex t;
-		do
-		{
-			t = z;
-			z = 0.8 * z + 0.2 * cpow(z, -4);
-		} while (cabs(z - t) >= f->eps);
-		t_pixel color;
-		switch ((int)(carg(z) / f->dpi))
-		{
-		case 0:
+	t_pixel color;
+	(void)crd;
+	(void)f;
+	(void)z;
+	// t_complex t;
+	// // double complex t;
+	// double x = (crd.x - X0) * f->pxl;
+	// double y = (crd.y - Y0) * f->pxl;
+	// complex double z = x + I * y;
+	// z.real = x;
+	// z.imag = y;
+	// if (x || y)
+	// {
+	// 	t = z;
+		
+	// 	z = 0.8 * z + 0.2 * cpow(z, -4);
+
+	// 	do
+	// 	{
+	// 		t = z;
+			// z = 0.8 * z + 0.2 * cpow(z, -4);
+	// 	} while (cabs(z - t) >= f->eps);
+
+	// 	switch ((int)(carg(z) / f->dpi))
+	// 	{
+	// 	case 0:
 			color = COLOR_RED;
-			break;
-		case 1:
-		case 2:
-			color = COLOR_BLACK;
-			break;
-		case 3:
-		case 4:
-			color = COLOR_BLUE;
-			break;
-		case -3:
-		case -4:
-			color = COLOR_WHITE;
-			break;
-		case -1:
-		case -2:
-			color = COLOR_BURLYWOOD;
-			break;
-		}
+	// 		break;
+	// 	case 1:
+	// 	case 2:
+	// 		color = COLOR_BLACK;
+	// 		break;
+	// 	case 3:
+	// 	case 4:
+	// 		color = COLOR_BLUE;
+	// 		break;
+	// 	case -3:
+	// 	case -4:
+	// 		color = COLOR_WHITE;
+	// 		break;
+	// 	case -1:
+	// 	case -2:
+	// 		color = COLOR_BURLYWOOD;
+	// 		break;
+	// 	}
 		put_pixel(crd.x, crd.y, f, color);
-	}
+	// }
 }
 
 void complex_while(t_frac *f, t_complex z, t_complex c,
 				   t_cord crd)
 {
 	double len_vect;
-	t_complex z2;
 	register int i;
 
 	f->iter = 0;
@@ -64,15 +74,12 @@ void complex_while(t_frac *f, t_complex z, t_complex c,
 	len_vect = 1;
 	if (f->type_fract == NEWTON)
 	{
-		newton_calc(crd, f);
+		newton_calc(crd, f, z);
 		return ;
 	}
 	while (f->iter != f->max_iter && len_vect <= 2.3)
 	{
-		z2 = multi_complex(z, z);
-		if (f->type_fract > MAND1 && f->type_fract < JULIA)
-			z2 = mand_who(f, z);
-		z = addit_complex(z2, c);
+		z = addit_complex(multi_complex(z, z), c);
 		if (f->type_fract == SHIP)
 			z = abs_complex(z);
 		len_vect = mod_complex(z);

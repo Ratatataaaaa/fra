@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 19:19:41 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/03 19:34:33 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/05 14:29:51 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <stdio.h>
 
 typedef struct		s_list
 {

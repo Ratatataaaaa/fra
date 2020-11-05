@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 21:56:30 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/05 12:36:26 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/05 21:39:41 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int			main(int ac, char **av)
 {
 	t_frac	*f;
 
+	pow_complex((t_complex){-5, 3}, -3);
 	if (ac == 2)
 	{
 		if (!(f = (t_frac *)ft_memalloc(sizeof(t_frac))))

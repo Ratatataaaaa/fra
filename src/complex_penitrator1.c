@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 17:45:29 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/03 21:18:52 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/05 21:39:39 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,65 @@ t_complex		devision_complex(t_complex a, t_complex b)
 	return (ret);
 }
 
+double		factor(double n)
+{
+	return (n < 2) ? 1 : n * factor (n - 1);
+}
+
 t_complex		pow_complex(t_complex a, int power)
 {
-	t_complex	temp;
+	t_complex	ret;
+	int			iter;
+	double		temp;
+	double		ex_c;
+	bool		chet_r;
+	bool		chet_i;
+	bool		true_pow;
 
-	while (power != 0)
+	if (power < 0)
 	{
-		temp = multi_complex(a, a);
-		--power;
+		power = -power;
+		true_pow = true;
 	}
-	return (temp);
+	else
+		true_pow = false; 
+	ret.imag = 0;
+	ret.real = pow(a.real, power);
+	//ret.imag = (power % 2 == 1) ?  -1 * pow(a.imag, power) : pow(a.imag, power);
+	iter = 0;
+	temp = 0;
+	chet_r = true;
+	chet_i = true;
+	while (++iter < power)
+	{
+		ex_c = factor(power) / (factor(power - iter) * factor(power - (power - iter)));
+		printf("ex_c = %f\n", ex_c);
+		temp = ex_c * pow(a.real, power - iter) * pow(a.imag, iter);
+		printf("temp = %f\n", temp);
+		if (iter % 2 == 1)
+		{
+			if (chet_i)
+				ret.imag += temp;
+			else
+				ret.imag -= temp;
+			chet_i = !chet_i;
+		}
+		else
+		{
+			if (chet_r)
+				ret.real -= temp;
+			else
+				ret.real += temp;
+			chet_r = !chet_r;
+		}
+			// ret.real -=temp;
+	}
+	if (power % 2 == 1)
+		ret.imag += (chet_i) ? pow(a.imag, power) : -pow(a.imag, power);
+	else
+		ret.real += (chet_r) ? -pow(a.imag, power) : pow(a.imag, power);
+	if (true_pow)
+		ret = devision_complex((t_complex){1, 0}, ret);
+	printf("real = %f  imag = %f\n", ret.real, ret.imag);
+	return (ret);
 }
