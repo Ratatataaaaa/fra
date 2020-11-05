@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 22:27:49 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/04 20:33:44 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/05 13:15:42 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		mand_init(t_frac *ptr)
 	ptr->max_iter = 50;
 	ptr->start_iter = 0;
 	ptr->color.plur = COLOR_BLACK;
-	ptr->color.start = COLOR_BLACK;
+	ptr->color.start = COLOR_YELLOW;
 	ptr->color.final = COLOR_BLUE;
 	ptr->colors = NULL;
 	ptr->colors = cache_colors(ptr);
@@ -41,8 +41,8 @@ void		fire_ship_init(t_frac *ptr)
 	ptr->zy = 0;
 	ptr->start_iter = 0;
 	ptr->color.plur = COLOR_BLACK;
-	ptr->color.start = COLOR_BLACK;
-	ptr->color.final = COLOR_BLUE;
+	ptr->color.start = COLOR_DARKTURQUIOSE;
+	ptr->color.final = COLOR_GOLD;
 	ptr->colors = NULL;
 	ptr->colors = cache_colors(ptr);
 }
@@ -83,7 +83,7 @@ void		julia_init(t_frac *ptr)
 	ptr->zy = 0;
 	ptr->color.plur = COLOR_BLACK;
 	ptr->color.start = COLOR_BLACK;
-	ptr->color.final = COLOR_BLUE;
+	ptr->color.final = COLOR_RED;
 	ptr->colors = NULL;
 	ptr->colors = cache_colors(ptr);
 }
@@ -91,17 +91,12 @@ void		julia_init(t_frac *ptr)
 void		put_menu_color_type(t_frac *f)
 {
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0xffffff, "'+/=' - Color + ");
+	0xffffff, "+/- Change color");
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0xffffff, "'-' - Color - ");
+	0xffffff, "Z/X Change  plur");
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0xffffff, "Ti pidor)");
-	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0xffffff, "'2' - Set_Color_2");
-	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0xffffff, "'Z' - Plur - ");
-	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0xffffff, "'X' - Plur + ");
+	0xffffff, "Del Default scene");
+
 }
 
 void		init_mlx(t_frac *ptr, char *av)

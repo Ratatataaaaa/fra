@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 16:48:13 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/04 17:53:49 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/05 13:21:37 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,12 @@ void		what_init(t_frac *f)
 {
 	if (f->type_fract == MAND1)
 		mand_init(f);
-	else if (f->type_fract == MAND2)
-		mand_init(f);
-	else if (f->type_fract == MAND3)
-		mand_init(f);
-	else if (f->type_fract == MAND4)
-		mand_init(f);
-	else if (f->type_fract == MAND5)
-		mand_init(f);
-	else if (f->type_fract == MAND6)
-		mand_init(f);
-	else if (f->type_fract == MAND7)
-		mand_init(f);
-	else if (f->type_fract == MAND8)
-		mand_init(f);
 	else if (f->type_fract == JULIA)
 		julia_init(f);
 	else if (f->type_fract == SHIP)
 		fire_ship_init(f);
+	else if (f->type_fract == NEWTON)
+		mand_init(f);
 }
 
 int			mouse_move(int x, int y, void *param)

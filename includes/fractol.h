@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 21:47:25 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/04 20:36:34 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/05 13:23:04 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,10 @@
 # define BLUE_STEP 0x000009
 
 # define MAND1 1
-# define MAND2 2
-# define MAND3 3
-# define MAND4 4
-# define MAND5 5
-# define MAND6 6
-# define MAND7 7
-# define MAND8 8
-# define JULIA 9
-# define SHIP 10
-# define NEWTON 11
+# define SHIP 2
+# define NEWTON 3
+# define JULIA 4
 
-# define W 854
-# define H 480
 # define X0 (WIDTH_WIN - WIDTH_MENU) / 2
 # define Y0 HEIGHT_WIN / 2
 

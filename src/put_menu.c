@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/10 16:18:51 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/04 19:20:48 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/05 13:19:31 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,63 +14,61 @@
 
 void				put_menu_plur_change_color_switch(t_frac *f)
 {
-	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-	0x00ff00, "==================");
 	if (f->clr_sw.plur == 1)
-		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-		0xffffff, "'H' - Clr_Plur ON");
+		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
+		0xffffff, "H - Clr_Plur ON");
 	else
-		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-		0xffffff, "'H' - Clr_Plur OFF");
+		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
+		0xffffff, "H - Clr_Plur OFF");
 	if (f->clr_sw.final == 1)
-		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-		0xffffff, "'N' - Clr_Cant ON");
+		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
+		0xffffff, "N - Clr_Cant ON");
 	else
-		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-		0xffffff, "'N' - Clr_Cant OFF");
+		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
+		0xffffff, "N - Clr_Cant OFF");
 	if (f->clr_sw.start == 1)
-		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-		0xffffff, "'T' - Clr_Backgr ON");
+		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
+		0xffffff, "T - Clr_Backgr ON");
 	else
-		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-		0xffffff, "'T' - Clr_Backgr OFF");
+		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
+		0xffffff, "T - Clr_Backgr OFF");
 }
 
 void				put_menu_keycode(t_frac *f)
 {
-	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-	0x00ff00, "==================");
+	char			*str;
+
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0xffffff, "'E' - Thread + ");
+	0xffffff, "E Thread + 1");
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0xffffff, "'Q' - Thread - ");
+	0xffffff, "Q Thread - 1");
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0xffffff, "'}' - Itter + ");
+	0xffffff, "Threads - ");
+	mlx_string_put(f->ptr, f->win, f->menu.x + 100, f->menu.y,
+	0xffffff, (str = ft_itoa(f->threads)));
+	free(str);
+	if (f->threads == 2)
+		mlx_string_put(f->ptr, f->win, f->menu.x + 115, f->menu.y,
+		0xffffff, "min");
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0xffffff, "'{' - Itter - ");
-	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-	0x00ff00, "==================");
-	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-	0xffffff, "'A,W,D,S' - Shift_Plur ");
-	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0xffffff, "'Arrows' - Move");
+	0xffffff, "A,W,D,S - Shift_Plur ");
 	if (f->mouse.is_pres_key == 1)
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-		0xffffff, "'Space' Move Plur ON");
+		0xffffff, "Space - Move Plur ON");
 	else
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-		0xffffff, "'Space' Move Plur OFF");
-	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0x00ff00, "==================");
+		0xffffff, "Space - Move Plur OFF");
 }
 
 void				put_menu_status_plur(t_frac *f)
 {
 	char			*str;
 
-	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-	0x00ff00, "==================");
-	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
+	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
+	0xffffff, "]   Itter + 10");
+	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
+	0xffffff, "[   Itter - 10");
+	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
 	0xffffff, "Itter - ");
 	mlx_string_put(f->ptr, f->win, f->menu.x + 80, f->menu.y,
 	0xffffff, (str = ft_itoa(f->max_iter)));
@@ -78,10 +76,8 @@ void				put_menu_status_plur(t_frac *f)
 		mlx_string_put(f->ptr, f->win, f->menu.x + 110, f->menu.y,
 		0xffffff, "min");
 	free(str);
-	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-	0xffffff, "Threads - ");
-	mlx_string_put(f->ptr, f->win, f->menu.x + 100, f->menu.y,
-	0xffffff, (str = ft_itoa(f->threads)));
+	mlx_string_put(f->ptr, f->win, f->menu.x + 140, f->menu.y,
+	0xffffff, (str = ft_itoa(f->type_fract)));
 	free(str);
 }
 
@@ -89,22 +85,22 @@ void				put_menu_color_switch(t_frac *f)
 {
 	if (f->clr_sw.red == 1)
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-		0xbb0000, "'R' - Rad_Canal ON");
+		0xbbaaaa, "R - Rad_Canal ON");
 	else
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-		0xbb0000, "'R' - Rad_Canal OFF");
+		0xbb1100, "R - Rad_Canal OFF");
 	if (f->clr_sw.green == 1)
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-		0x00bb00, "'G' - Green_Canal ON");
+		0x00bb00, "G - Green_Canal ON");
 	else
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-		0x00bb00, "'G' - Green_Canal OFF");
+		0x00bb00, "G - Green_Canal OFF");
 	if (f->clr_sw.blue == 1)
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-		0x0000bb, "'B' - Blue_Canal ON");
+		0x0000bb, "B - Blue_Canal ON");
 	else
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-		0x0000bb, "'B' - Blue_Canal OFF");
+		0x0000bb, "B - Blue_Canal OFF");
 }
 
 void				put_menu(t_frac *f)
@@ -115,7 +111,7 @@ void				put_menu(t_frac *f)
 	image = (int *)(f->menu.data_addr);
 	i = 0;
 	while (i < HEIGHT_MENU * WIDTH_MENU)
-		image[i++] = 0x000050;
+		image[i++] = 0x000000;
 	mlx_put_image_to_window(f->ptr, f->win, f->menu.img,
 	WIDTH_WIN - WIDTH_MENU, 0);
 	f->menu.y = 0;
@@ -127,11 +123,7 @@ void				put_menu(t_frac *f)
 	put_menu_status_plur(f);
 	put_menu_keycode(f);
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0xffffff, "'Enter' - Open_new_Win ");
-	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-	0xffffff, "Mouse Move - Shift_Plur");
+	0xffffff, "'Enter' - new window");
 	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
 	0xffffff, "Scroll - Zoom");
-	mlx_string_put(f->ptr, f->win, f->menu.x + 100, f->menu.y += 25,
-	0xfacbaa, "By Bdrinkin");
 }

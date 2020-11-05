@@ -6,26 +6,11 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 21:56:30 by bdrinkin          #+#    #+#             */
-/*   Updated: 2020/11/04 18:21:19 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/05 12:36:26 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-void		switch_plur2(t_frac *f)
-{
-	if (f->type_fract == MAND8)
-		mlx_string_put(f->ptr, f->win, f->menu.x + 50, f->menu.y += 25,
-		0xffffff, "SeaBrot");
-	else if (f->type_fract == JULIA)
-		mlx_string_put(f->ptr, f->win, f->menu.x + 50, f->menu.y += 25,
-		0xffffff, "Julia");
-	else if (f->type_fract == SHIP)
-		mlx_string_put(f->ptr, f->win, f->menu.x + 50, f->menu.y += 25,
-		0xffffff, "Fire_Ship");
-	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-	0x00ff00, "==================");
-}
 
 void		error_exit(char *str)
 {
