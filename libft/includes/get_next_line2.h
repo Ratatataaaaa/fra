@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line2.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdrinkin <bdrinkin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/22 16:26:10 by lmaximin          #+#    #+#             */
-/*   Updated: 2020/02/09 05:45:55 by bdrinkin         ###   ########.fr       */
+/*   Created: 2019/09/22 16:26:10 by cwing             #+#    #+#             */
+/*   Updated: 2020/11/06 13:11:57 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE2_H
 # define GET_NEXT_LINE2_H
-# define BUFF_SIZE 6000
+# define BUFF_SIZE 4096
 
 # include <unistd.h>
 # include <stdlib.h>
