@@ -6,15 +6,15 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 21:47:25 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 16:13:44 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/06 22:32:20 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WIDTH_WIN 1100
-# define HEIGHT_WIN 700
+# define WIDTH_WIN 2500
+# define HEIGHT_WIN 1900
 # define WIDTH_MENU 250
 # define HEIGHT_MENU HEIGHT_WIN
 

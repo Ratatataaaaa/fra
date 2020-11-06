@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 21:12:26 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 13:08:25 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/06 22:18:19 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	odd_pars(t_frac *f, t_cord crd)
 		// f->color.final = COLOR_BURLYWOOD;
 		// f->color.start = COLOR_BLACK;
 		// f->colors = cache_colors(f);
-		temp = (t_pixel){255, 255, 255, 0};
+		temp = (t_pixel){255, 255, 255, 1};
 		put_pixel(crd.x, crd.y, f, temp);//f->colors[f->iter]);
 		// f->color.start = COLOR_BLACK;
 		// f->color.final = COLOR_BLUE;

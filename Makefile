@@ -6,7 +6,7 @@
 #    By: cwing <cwing@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/11 21:41:01 by cwing             #+#    #+#              #
-#    Updated: 2020/11/06 13:09:41 by cwing            ###   ########.fr        #
+#    Updated: 2020/11/06 20:38:52 by cwing            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME = fractol
 
 # Флаги компиляции:
 CC = gcc
-CCFLAGS = -Wall -Wextra  -g
-FLAGS = -O0
+CCFLAGS = -Wall -Wextra
+FLAGS = -O3
 
 # Список библиотек и их пути:
 LIBFT = $(LIBFT_DIRECTORY)libft.a

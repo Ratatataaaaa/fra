@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:38:46 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 17:03:26 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/06 19:07:24 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,28 @@ t_complex		subtraction_complex(t_complex a, t_complex b)
 
 double			arg_complex(t_complex z)
 {
-	double		rez;
-	
-	if (z.imag == 0 && z. real == 0)
+	if (z.imag == 0 && z.real == 0)
 		return (0);
+	if (z.real == 0 && z.imag > 0)
+		return (0);
+	if (z.real == 0 && z.imag < 0)
+		return (M_PI);
+	if (z.real > 0 && z.imag == 0)
+		return (M_PI / 2);
+	if (z.real < 0 && z.imag == 0)
+		return (-(M_PI / 2));
 	if (z.real > 0)
 		return (atan(z.imag / z.real));
 	if (z.real < 0 && z.imag > 0)
-		return (atan(atan(z.imag / z.real) + M_PI));
+		return (atan(z.imag / z.real) + M_PI);
 	if (z.real < 0 && z.imag < 0)
-		return (atan(atan(z.imag / z.real) - M_PI));
+		return (atan(z.imag / z.real) - M_PI);
+	return (0);
 }
 
 double			mod_complex(t_complex z)
 {
-	double		r;
-
-	r = sqrt(z.real * z.real + z.imag * z.imag);
-	return (r);
+	return (sqrt(z.real * z.real + z.imag * z.imag));
 }
 
 t_complex		abs_complex(t_complex z)

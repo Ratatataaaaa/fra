@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 16:18:51 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 13:07:21 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/06 18:26:19 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ void				put_menu_plur_change_color_switch(t_frac *f)
 {
 	if (f->clr_sw.plur == 1)
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-		0xffffff, "H - Clr_Plur ON");
+		0x00bb00, "H - Clr_Plur ON");
 	else
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
 		0xffffff, "H - Clr_Plur OFF");
 	if (f->clr_sw.final == 1)
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-		0xffffff, "N - Clr_Cant ON");
+		0x00bb00, "N - Clr_Cant ON");
 	else
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
 		0xffffff, "N - Clr_Cant OFF");
 	if (f->clr_sw.start == 1)
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-		0xffffff, "T - Clr_Backgr ON");
+		0x00bb00, "T - Clr_Backgr ON");
 	else
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
 		0xffffff, "T - Clr_Backgr OFF");
@@ -85,22 +85,22 @@ void				put_menu_color_switch(t_frac *f)
 {
 	if (f->clr_sw.red == 1)
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-		0xbbaaaa, "R - Rad_Canal ON");
+		0xbb0000, "R - Rad_Canal ON");
 	else
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
-		0xbb1100, "R - Rad_Canal OFF");
+		0xffffff, "R - Rad_Canal OFF");
 	if (f->clr_sw.green == 1)
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
 		0x00bb00, "G - Green_Canal ON");
 	else
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-		0x00bb00, "G - Green_Canal OFF");
+		0xffffff, "G - Green_Canal OFF");
 	if (f->clr_sw.blue == 1)
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
 		0x0000bb, "B - Blue_Canal ON");
 	else
 		mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 20,
-		0x0000bb, "B - Blue_Canal OFF");
+		0xffffff, "B - Blue_Canal OFF");
 }
 
 void				put_menu(t_frac *f)

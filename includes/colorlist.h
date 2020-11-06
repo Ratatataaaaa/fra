@@ -6,60 +6,29 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 19:51:36 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 17:04:49 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/06 22:24:13 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLORLIST_H
 # define COLORLIST_H
 
-# define COLOR_BLACK (t_pixel){0, 0, 0, 0}
+# define COLOR_BLACK (t_pixel){0, 0, 0, 1}
 
-# define COLOR_BLUE	(t_pixel){255, 0, 0, 0}
-# define COLOR_YELLOW (t_pixel){97, 232, 219, 0}
+# define COLOR_BLUE	(t_pixel){255, 0, 0, 1}
+# define COLOR_YELLOW (t_pixel){97, 232, 219, 1}
+# define COLOR_RED	(t_pixel){0, 0, 255, 0}
 
-# define COLOR_GOLD (t_pixel){0, 215, 255, 1}
-# define COLOR_DARKTURQUIOSE (t_pixel){48, 38, 14, 1}
+# define COLOR_GOLD (t_pixel){0, 215, 255, 200}
+# define COLOR_DARKTURQUIOSE (t_pixel){48, 38, 14, 200}
 
-# define COLOR_RED (t_pixel){0, 0, 255, 1}
-# define COLOR_FIREBRICK (t_pixel){255, 0, 0, 1}
-# define COLOR_DARKRED (t_pixel){255, 0, 0, 1}
-# define COLOR_MAROON (t_pixel){255, 0, 0, 1}
+# define GREEN_YELLOW (t_pixel){47, 255, 173 , 0}
+# define LIME (t_pixel){0, 255, 0, 1}
 
-# define COLOR_PINK (t_pixel){0, 242, 255, 1}
-# define COLOR_DEEPPINK (t_pixel){255, 0, 0, 1}
-# define COLOR_MEDIUMVIOLETRED (t_pixel){255, 0, 0, 1}
-
-# define COLOR_ORANGERED (t_pixel){255, 0, 0, 1}
-# define COLOR_ORANGE (t_pixel){255, 0, 0, 1
-
-# define COLOR_PLUM (t_pixel){255, 0, 0, 1}
-# define COLOR_VIOLET (t_pixel){255, 0, 0, 1}
-# define COLOR_MAGENTA (t_pixel){255, 0, 0, 1}
-# define COLOR_BLUEVIOLET (t_pixel){255, 0, 0, 1}
-# define COLOR_PURPLE (t_pixel){255, 0, 0, 1}
-# define COLOR_INDIGO (t_pixel){255, 0, 0, 1}
-
-# define COLOR_BURLYWOOD (t_pixel){150, 50, 200, 1}
-# define COLOR_CHOCOLATE (t_pixel){255, 0, 0, 1}
-# define COLOR_SADDLEBROWN (t_pixel){255, 0, 0, 1}
-
-# define COLOR_GRAY (t_pixel){255, 0, 0, 1}
-# define COLOR_SILVER (t_pixel){255, 0, 0, 1}
-# define COLOR_WHITE (t_pixel){255, 255, 255, 1}
-
-# define COLOR_LIME (t_pixel){255, 0, 0, 1}
-# define COLOR_LIMEGREEN (t_pixel){255, 0, 0, 1}
-# define COLOR_GREEN (t_pixel){255, 0, 0, 1}
-# define COLOR_DARKGREEN (t_pixel){255, 0, 0, 1}
-# define COLOR_YELLOWGREEN (t_pixel){255, 0, 0, 1}
-
-# define COLOR_CYAN (t_pixel){255, 0, 0, 1}
-# define COLOR_AQUAMARINE (t_pixel){255, 0, 0, 1}
-# define COLOR_STEELBLUE (t_pixel){255, 0, 0, 1}
-# define COLOR_DEEPSKYBLUE (t_pixel){255, 0, 0, 1}
-# define COLOR_DODGERBLUE (t_pixel){255, 0, 0, 1}
-# define COLOR_DARKBLE (t_pixel){255, 0, 0, 1}
-# define COLOR_DEEPSPACEBLUE (t_pixel){255, 0, 0, 1}
+# define AQUAMARINEE (t_pixel){212, 255, 127, 1}
+# define TURQOISE (t_pixel){208, 224, 64, 1}
+# define DARK_TURQOISE (t_pixel){209, 206, 0, 1}
+# define CYAN (t_pixel){255, 255, 0, 1}
+# define DEEP_SKY_BLUE (t_pixel){209, 191, 0, 1}
 
 #endif

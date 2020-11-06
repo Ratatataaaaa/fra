@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:25:25 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 13:07:33 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/06 22:25:47 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void		put_pixel(int x, int y, t_frac *f, t_pixel color)
 		f->data_addr[i] = color.red;
 		f->data_addr[++i] = color.green;
 		f->data_addr[++i] = color.blue;
-		f->data_addr[++i] = (f->smuze) ? color.alfa : 0;
+		f->data_addr[++i] = (f->smuze) ? color.alfa + 200 : 0;
 	}
 }
 
