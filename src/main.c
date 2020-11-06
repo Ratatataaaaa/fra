@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 21:56:30 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 13:07:49 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/06 17:03:25 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ int			main(int ac, char **av)
 {
 	t_frac	*f;
 
-	pow_complex((t_complex){-5, 3}, -3);
+	// printf("arg = %f\n",arg_complex((t_complex){0.123,-0.5}));
+	// t_complex reyt = pow_complex((t_complex){4,-3}, -3);
+	// printf("Real = %f imag = %f\n", reyt.real, reyt.imag);
 	if (ac == 2)
 	{
 		if (!(f = (t_frac *)ft_memalloc(sizeof(t_frac))))

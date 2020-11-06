@@ -6,15 +6,15 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 21:47:25 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 13:09:41 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/06 16:13:44 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# define WIDTH_WIN 1300
-# define HEIGHT_WIN 800
+# define WIDTH_WIN 1100
+# define HEIGHT_WIN 700
 # define WIDTH_MENU 250
 # define HEIGHT_MENU HEIGHT_WIN
 
@@ -168,7 +168,7 @@ t_complex			subtraction_complex(t_complex a, t_complex b);
 double				mod_complex(t_complex z);
 t_complex			devision_complex(t_complex a, t_complex b);
 t_complex			pow_complex(t_complex a, int power);
-
+double				arg_complex(t_complex z);
 
 t_complex			quatro_complex(t_complex a, t_complex b);
 t_complex			sin_cos_tg_complex(t_complex z, char *real,

@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 19:51:36 by kain2250          #+#    #+#             */
-/*   Updated: 2020/11/05 13:14:09 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/06 16:19:48 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define COLOR_DARKRED (t_pixel){255, 0, 0, 1}
 # define COLOR_MAROON (t_pixel){255, 0, 0, 1}
 
-# define COLOR_PINK (t_pixel){255, 242, 0, 1}
+# define COLOR_PINK (t_pixel){0, 242, 255, 1}
 # define COLOR_DEEPPINK (t_pixel){255, 0, 0, 1}
 # define COLOR_MEDIUMVIOLETRED (t_pixel){255, 0, 0, 1}
 

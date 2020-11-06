@@ -6,41 +6,57 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:48:44 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 13:07:26 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/06 17:03:24 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void newton_calc(t_cord crd, t_frac *f, t_complex z)
+void newton_calc(t_cord crd, t_frac *f)
 {
-	t_pixel color;
-	(void)crd;
-	(void)f;
-	(void)z;
-	// t_complex t;
-	// // double complex t;
-	// double x = (crd.x - X0) * f->pxl;
-	// double y = (crd.y - Y0) * f->pxl;
-	// complex double z = x + I * y;
-	// z.real = x;
-	// z.imag = y;
-	// if (x || y)
-	// {
-	// 	t = z;
-		
+	t_pixel		color;
+	t_complex 	t;
+	int			arg;
+	t_complex	z;
+	
+	z.real = (crd.x - f->cx) * f->pxl;;
+	z.imag = (crd.y - f->cy) * f->pxl;
+	if (z.real || z.imag)
+	{
+		t.real = z.real;
+		t.imag = z.imag;
+		z = addit_complex(multi_complex((t_complex){0.8, 0}, z), multi_complex((t_complex){0.2, 0}, pow_complex(z, -4)));
 	// 	z = 0.8 * z + 0.2 * cpow(z, -4);
-
+	while (mod_complex(subtraction_complex(z, t)) >= f->eps)
+	{
+		t.real = z.real;
+		t.imag = z.imag;
+		z = addit_complex(multi_complex((t_complex){0.8, 0}, z), multi_complex((t_complex){0.2, 0}, pow_complex(z, -4)));
+	}
+	arg = (int)(arg_complex(z) / f->dpi);
+	if (arg == 0)
+		color = COLOR_BLUE;
+	else if (arg == 1 || arg == 2)
+		color = COLOR_DARKTURQUIOSE;
+	else if (arg == 3 || arg == 4)
+		color = COLOR_GOLD;
+	else if (arg == -3 || arg == -4)
+		color = COLOR_AQUAMARINE;
+	else if (arg == -1 || arg == -2)
+		color = COLOR_PINK;
+	else
+		color = COLOR_BLACK;
+	}
 	// 	do
 	// 	{
 	// 		t = z;
 			// z = 0.8 * z + 0.2 * cpow(z, -4);
 	// 	} while (cabs(z - t) >= f->eps);
 
-	// 	switch ((int)(carg(z) / f->dpi))
+		// switch ((int)(carg(z) / f->dpi))
 	// 	{
 	// 	case 0:
-			color = COLOR_RED;
+			// color = COLOR_RED;
 	// 		break;
 	// 	case 1:
 	// 	case 2:
@@ -74,7 +90,7 @@ void complex_while(t_frac *f, t_complex z, t_complex c,
 	len_vect = 1;
 	if (f->type_fract == NEWTON)
 	{
-		newton_calc(crd, f, z);
+		newton_calc(crd, f);
 		return ;
 	}
 	while (f->iter != f->max_iter && len_vect <= 2.3)

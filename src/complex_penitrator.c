@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:38:46 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 13:08:20 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/06 17:03:26 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,20 @@ t_complex		subtraction_complex(t_complex a, t_complex b)
 	z.real = a.real - b.real;
 	z.imag = a.imag - b.imag;
 	return (z);
+}
+
+double			arg_complex(t_complex z)
+{
+	double		rez;
+	
+	if (z.imag == 0 && z. real == 0)
+		return (0);
+	if (z.real > 0)
+		return (atan(z.imag / z.real));
+	if (z.real < 0 && z.imag > 0)
+		return (atan(atan(z.imag / z.real) + M_PI));
+	if (z.real < 0 && z.imag < 0)
+		return (atan(atan(z.imag / z.real) - M_PI));
 }
 
 double			mod_complex(t_complex z)

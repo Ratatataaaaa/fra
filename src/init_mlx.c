@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:27:49 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 13:08:08 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/06 17:03:20 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		mand_init(t_frac *ptr)
 {
 	ptr->type_fract = MAND;
-	ptr->zoom = 300.00;
+	ptr->zoom = 150.00;
 	ptr->cx = -(WIDTH_WIN - WIDTH_MENU) / 2 / ptr->zoom - 0.5;
 	ptr->cy = -HEIGHT_MENU / 2 / ptr->zoom ;
 	ptr->cur_y = 0;
@@ -33,7 +33,7 @@ void		mand_init(t_frac *ptr)
 void		fire_ship_init(t_frac *ptr)
 {
 	ptr->type_fract = SHIP;
-	ptr->zoom = 310.00;
+	ptr->zoom = 150.00;
 	ptr->cx = -(WIDTH_WIN - WIDTH_MENU) / 2 / ptr->zoom;
 	ptr->cy = -HEIGHT_MENU / 2 / ptr->zoom;
 	ptr->cur_y = 0;
@@ -51,14 +51,14 @@ void		fire_ship_init(t_frac *ptr)
 void		newton_init(t_frac *ptr)
 {
 	ptr->type_fract = NEWTON;
-	ptr->zoom = 320.00;
+	ptr->zoom = 150.00;
 	ptr->cx = -(WIDTH_WIN - WIDTH_MENU) / 2 / ptr->zoom;
 	ptr->cy = -HEIGHT_MENU / 2 / ptr->zoom;
 	ptr->start_iter = 0;
 	ptr->max_iter = 40;
 	ptr->cur_y = 0;
-	ptr->zx = 0;
-	ptr->zy = 0;
+	ptr->zx = 1;
+	ptr->zy = 1;
 	ptr->color.plur = COLOR_BLACK;
 	ptr->color.start = COLOR_BLACK;
 	ptr->color.final = COLOR_BLUE;
@@ -72,7 +72,7 @@ void		newton_init(t_frac *ptr)
 void		julia_init(t_frac *ptr)
 {
 	ptr->type_fract = JULIA;
-	ptr->zoom = 320.00;
+	ptr->zoom = 150.00;
 	ptr->cx = -0.63;
 	ptr->cy = -0.54;
 	ptr->jx = -1.6;

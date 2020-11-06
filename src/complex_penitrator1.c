@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 17:45:29 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 13:08:14 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/06 16:43:38 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,12 @@ t_complex		pow_complex(t_complex a, int power)
 	double		ex_c;
 	bool		chet_r;
 	bool		chet_i;
-	bool		true_pow;
 
 	if (power < 0)
 	{
 		power = -power;
-		true_pow = true;
+		a = devision_complex((t_complex){1, 0}, a);
 	}
-	else
-		true_pow = false; 
 	ret.imag = 0;
 	ret.real = pow(a.real, power);
 	//ret.imag = (power % 2 == 1) ?  -1 * pow(a.imag, power) : pow(a.imag, power);
@@ -85,9 +82,7 @@ t_complex		pow_complex(t_complex a, int power)
 	while (++iter < power)
 	{
 		ex_c = factor(power) / (factor(power - iter) * factor(power - (power - iter)));
-		printf("ex_c = %f\n", ex_c);
 		temp = ex_c * pow(a.real, power - iter) * pow(a.imag, iter);
-		printf("temp = %f\n", temp);
 		if (iter % 2 == 1)
 		{
 			if (chet_i)
@@ -110,8 +105,6 @@ t_complex		pow_complex(t_complex a, int power)
 		ret.imag += (chet_i) ? pow(a.imag, power) : -pow(a.imag, power);
 	else
 		ret.real += (chet_r) ? -pow(a.imag, power) : pow(a.imag, power);
-	if (true_pow)
-		ret = devision_complex((t_complex){1, 0}, ret);
-	printf("real = %f  imag = %f\n", ret.real, ret.imag);
+		
 	return (ret);
 }

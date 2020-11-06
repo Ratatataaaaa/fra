@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 19:59:41 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 13:07:06 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/06 17:03:24 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void			other_zoom(t_frac *f, int x, int y)
 	f->range_move /= 1.1;
 	f->cx = m.real - x / f->zoom;
 	f->cy = m.imag - y / f->zoom;
-	f->pxl *= 0.9;
+	f->pxl *= f->range_move;
 	calc_plur(f);
 }
 
