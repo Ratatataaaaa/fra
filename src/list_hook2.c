@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 16:48:13 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 13:07:56 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/07 16:45:28 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void		what_init(t_frac *f)
 {
+	zero_back(f, 1);
 	if (f->type_fract == MAND)
-		mand_init(f);
+		init_mand(f);
 	else if (f->type_fract == JULIA)
-		julia_init(f);
+		init_juli(f);
 	else if (f->type_fract == SHIP)
-		fire_ship_init(f);
+		init_ship(f);
 	else if (f->type_fract == NEWTON)
-		newton_init(f);
+		init_newt(f);
 }
 
 int			mouse_move(int x, int y, void *param)
@@ -29,21 +30,21 @@ int			mouse_move(int x, int y, void *param)
 	t_frac	*f;
 
 	f = (t_frac *)param;
-	f->mouse.prew_x = f->mouse.x;
-	f->mouse.prew_y = f->mouse.y;
+	f->mouse.old_x = f->mouse.x;
+	f->mouse.old_y = f->mouse.y;
 	f->mouse.x = x;
 	f->mouse.y = y;
 	if (f->mouse.is_pres_key == 1)
 	{
 		if (f->type_fract == JULIA)
 		{
-			f->cx -= (x - f->mouse.prew_x) * 0.001;
-			f->cy -= (y - f->mouse.prew_y) * 0.001;
+			f->cx -= (x - f->mouse.old_x) * 0.001;
+			f->cy -= (y - f->mouse.old_y) * 0.001;
 		}
 		else
 		{
-			f->zx -= (x - f->mouse.prew_x) * 0.001;
-			f->zy -= (y - f->mouse.prew_y) * 0.001;
+			f->zx -= (x - f->mouse.old_x) * 0.001;
+			f->zy -= (y - f->mouse.old_y) * 0.001;
 		}
 		calc_plur(f);
 	}
@@ -55,7 +56,7 @@ void		keys0(int key, t_frac *f)
 	if (key == KEY_ESC)
 		close_win(f);
 	else if (key == KEY_ENTER)
-		open_new_window(f, f->name);
+		open_win(f, f->name);
 	else if (key == KEY_SPASE)
 		spase_swich(f);
 	else if (key == KEY_Z || key == KEY_X)
@@ -65,25 +66,26 @@ void		keys0(int key, t_frac *f)
 	else if (key == KEY_T || key == KEY_H || key == KEY_N)
 		switch_area(f, key);
 	else if (key == KEY_M)
+	{
 		f->smuze = !f->smuze;
+		calc_plur(f);
+	}
 	else if (key == KEY_DELL)
 	{
 		what_init(f);
 		calc_plur(f);
 	}
-
 }
 
 void		keys1(int key, t_frac *f)
 {
 	if (key == KEY_MINUS || key == KEY_PLUS)
 	{
-		change_color_m(f, key);
-		change_color_final(f, key);
-		change_color_start(f, key);
+		ch_menu_color(f, key);
+		ch_final_color(f, key);
+		ch_start_color(f, key);
 		f->colors = cache_colors(f);
 		calc_plur(f);
-
 	}
 	else if (key == KEY_1 || key == KEY_2 || key == KEY_3 || key == KEY_4)
 		switch_color_preset(f, key);

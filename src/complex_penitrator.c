@@ -6,13 +6,13 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:38:46 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 19:07:24 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/07 15:28:36 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-t_complex		multi_complex(t_complex a, t_complex b)
+t_complex		mlt_complex(t_complex a, t_complex b)
 {
 	t_complex	z;
 
@@ -21,7 +21,7 @@ t_complex		multi_complex(t_complex a, t_complex b)
 	return (z);
 }
 
-t_complex		addit_complex(t_complex a, t_complex b)
+t_complex		add_complex(t_complex a, t_complex b)
 {
 	t_complex	z;
 
@@ -30,7 +30,7 @@ t_complex		addit_complex(t_complex a, t_complex b)
 	return (z);
 }
 
-t_complex		subtraction_complex(t_complex a, t_complex b)
+t_complex		sub_complex(t_complex a, t_complex b)
 {
 	t_complex	z;
 
@@ -71,4 +71,3 @@ t_complex		abs_complex(t_complex z)
 	z.imag = fabs(z.imag);
 	return (z);
 }
-

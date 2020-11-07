@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:25:25 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 22:25:47 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/07 17:11:20 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ t_pixel			get_color(int i, t_pixel start, t_pixel end, t_frac *f)
 	t_pixel		pixel;
 	double		percentage;
 
-	
 	percentage = ft_percent(f->start_iter, f->max_iter, i);
 	pixel.red = get_light(start.red, end.red, percentage);
 	pixel.green = get_light(start.green, end.green, percentage);
@@ -33,7 +32,7 @@ t_pixel			get_color(int i, t_pixel start, t_pixel end, t_frac *f)
 	return (pixel);
 }
 
-void		put_pixel(int x, int y, t_frac *f, t_pixel color)
+void			put_pixel(int x, int y, t_frac *f, t_pixel color)
 {
 	int		i;
 
@@ -47,7 +46,7 @@ void		put_pixel(int x, int y, t_frac *f, t_pixel color)
 	}
 }
 
-void		output_background(t_frac *f, int menu_or_img)
+void			zero_back(t_frac *f, int menu_or_img)
 {
 	if (menu_or_img == 1)
 		ft_bzero(f->menu.data_addr, WIDTH_MENU * HEIGHT_MENU *
@@ -55,4 +54,14 @@ void		output_background(t_frac *f, int menu_or_img)
 	else
 		ft_bzero(f->data_addr, (WIDTH_WIN - WIDTH_MENU) * HEIGHT_WIN *
 		(f->bp_pix / 8));
+}
+
+void			put_menu_color_type(t_frac *f)
+{
+	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
+	0xffffff, "+/- Change color");
+	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
+	0xffffff, "Z/X Change plural");
+	mlx_string_put(f->ptr, f->win, f->menu.x, f->menu.y += 25,
+	0xffffff, "Del Default scene");
 }

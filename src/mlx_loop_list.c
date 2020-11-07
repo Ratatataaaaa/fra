@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:28:46 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 13:07:39 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/07 15:21:39 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ void		iter_plus(t_frac *f, int key)
 
 void		swap_plur(t_frac *f, int key)
 {
-	if ((key == KEY_Z) && (f->type_fract != 1))
+	if ((key == KEY_Z) && (f->type_fract != MAND))
 	{
 		f->type_fract -= 1;
 		what_init(f);
 	}
-	else if ((key == KEY_X) && (f->type_fract != 4))
+	else if ((key == KEY_X) && (f->type_fract != JULIA))
 	{
 		f->type_fract += 1;
 		what_init(f);

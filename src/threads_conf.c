@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 17:29:15 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 13:07:13 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/07 14:27:48 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_complex		init_mand3(t_complex z)
 {
 	t_complex	z2;
 
-	z2 = sin_cos_tg_complex(z, "tan", "tan");
+	z2 = sct_complex(z, "tan", "tan");
 	return (z2);
 }
 
@@ -43,7 +43,7 @@ t_complex		init_mand5(t_complex z)
 
 	z3.real = mod_complex(z);
 	z3.imag = mod_complex(z);
-	z2 = multi_complex(z3, z3);
+	z2 = mlt_complex(z3, z3);
 	return (z2);
 }
 
@@ -52,7 +52,7 @@ t_complex		mand_who(t_frac *f, t_complex z)
 	t_complex	z2;
 
 	(void)f;
-	z2 = sin_cos_tg_complex(quatro_complex(z, z), "tan", "sin");
+	z2 = sct_complex(qtr_complex(z, z), "tan", "sin");
 	return (z2);
 }
 

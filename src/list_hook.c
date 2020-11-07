@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 16:01:57 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 13:08:02 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/07 14:31:09 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		spase_swich(t_frac *f)
 	put_menu(f);
 }
 
-void		open_new_window(t_frac *f, char *av)
+void		open_win(t_frac *f, char *av)
 {
 	if (f->count_window == 0)
 	{

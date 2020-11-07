@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 19:59:41 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/06 21:57:54 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/07 16:26:39 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,8 @@ void			other_dezoom(t_frac *f, int x, int y)
 	m.imag = y / f->zoom + f->cy;
 	f->zoom /= (f->type_fract != NEWTON) ? 1.1 : 1.1;
 	f->range_move *= 1.1;
-	if (f->type_fract != NEWTON)
-	{
-		f->cx = m.real - x / f->zoom;
-		f->cy = m.imag - y / f->zoom;
-	}
-	else
-	{
-		f->cx = m.real - x / f->zoom;
-		f->cy = m.imag - y / f->zoom;
-	}
+	f->cx = m.real - x / f->zoom;
+	f->cy = m.imag - y / f->zoom;
 	calc_plur(f);
 }
 
@@ -67,16 +59,8 @@ void			other_zoom(t_frac *f, int x, int y)
 	m.imag = y / f->zoom + f->cy;
 	f->zoom *= 1.1;
 	f->range_move /= 1.1;
-	if (f->type_fract != NEWTON)
-	{
-		f->cx = m.real - x / f->zoom;
-		f->cy = m.imag - y / f->zoom;
-	}
-	else
-	{
-		f->cx = m.real - x / f->zoom;
-		f->cy = m.imag - y / f->zoom;
-	}
+	f->cx = m.real - x / f->zoom;
+	f->cy = m.imag - y / f->zoom;
 	calc_plur(f);
 }
 
