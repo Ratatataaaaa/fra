@@ -1,41 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   complex_penitrator1.c                              :+:      :+:    :+:   */
+/*   complex_math1.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 17:45:29 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/08 18:47:02 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/08 20:19:04 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-t_complex		sct_complex(t_complex z, char *real, char *imag)
-{
-	if (ft_strcmp(real, "sin") == 0)
-		z.real = sin(z.real);
-	if (ft_strcmp(imag, "sin") == 0)
-		z.imag = sin(z.imag);
-	if (ft_strcmp(real, "cos") == 0)
-		z.real = cos(z.real);
-	if (ft_strcmp(imag, "cos") == 0)
-		z.imag = cos(z.imag);
-	if (ft_strcmp(real, "tan") == 0)
-		z.real = tan(z.real);
-	if (ft_strcmp(imag, "tan") == 0)
-		z.imag = tan(z.imag);
-	return (z);
-}
-
-t_complex		qtr_complex(t_complex a, t_complex b)
-{
-	t_complex	z;
-
-	z = mlt_complex(mlt_complex(a, b), mlt_complex(a, b));
-	return (z);
-}
 
 t_complex		dev_complex(t_complex a, t_complex b)
 {
@@ -52,12 +27,12 @@ t_complex		dev_complex(t_complex a, t_complex b)
 	return (ret);
 }
 
-double			factor(double n)
+static double	fac(double n)
 {
-	return (n < 2) ? 1 : n * factor(n - 1);
+	return (n < 2) ? 1 : n * fac(n - 1);
 }
 
-void			chet_check(bool *chet, double *ret, double temp, bool znak)
+static void		chet_check(bool *chet, double *ret, double temp, bool znak)
 {
 	if (znak)
 	{
@@ -71,6 +46,14 @@ void			chet_check(bool *chet, double *ret, double temp, bool znak)
 	}
 }
 
+static void		init_power(t_complex *ret, int *iter, double *temp, int *power)
+{
+	(*ret).imag = 0;
+	*iter = 0;
+	*temp = 0;
+	*power = (*power < 0) ? -1 * *power : *power;
+}
+
 t_complex		pow_complex(t_complex a, int power)
 {
 	t_complex	ret;
@@ -79,20 +62,14 @@ t_complex		pow_complex(t_complex a, int power)
 	double		ex_c;
 	bool		chet[2];
 
-	if (power < 0)
-	{
-		power = -power;
-		a = dev_complex((t_complex){1, 0}, a);
-	}
-	ret.imag = 0;
+	a = (power < 0) ? dev_complex((t_complex){1, 0}, a) : a;
+	init_power(&ret, &iter, &temp, &power);
 	ret.real = pow(a.real, power);
-	iter = 0;
-	temp = 0;
 	chet[0] = true;
 	chet[1] = true;
 	while (++iter < power)
 	{
-		ex_c = factor(power) / (factor(power - iter) * factor(power - (power - iter)));
+		ex_c = fac(power) / (fac(power - iter) * fac(power - (power - iter)));
 		temp = ex_c * pow(a.real, power - iter) * pow(a.imag, iter);
 		if (iter % 2 == 1)
 			chet_check(&chet[1], &ret.imag, temp, true);

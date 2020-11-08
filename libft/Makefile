@@ -6,7 +6,7 @@
 #    By: cwing <cwing@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/07 21:57:42 by cwing             #+#    #+#              #
-#    Updated: 2020/11/08 17:54:10 by cwing            ###   ########.fr        #
+#    Updated: 2020/11/08 20:25:34 by cwing            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror -c
 INCLUDES = -I$(HEADERS_DIRECTORY)
 HEADERS_LIST = libft.h\
-	get_next_line.h
+	get_next_line.h\
+	get_next_line2.h
 HEADERS_DIRECTORY = ./includes/
 HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
 
@@ -106,7 +107,7 @@ RESET = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS)
+$(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS) $(HEADERS)
 	@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
 	@printf "$(GREEN)[$(NAME)] Compiling successfuly! [OK]\n"
@@ -115,7 +116,7 @@ $(OBJECTS_DIRECTORY):
 	@mkdir -p $(OBJECTS_DIRECTORY)
 	@printf "$(GREEN)[$(NAME)] Make OBG dir $(OBJECTS_DIRECTORY) successfuly! [OK]\n"
 
-$(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
+$(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
 	@printf "$(RED)[$(NAME)] Compiling [...]\r"
 	@$(CC) $(FLAGS) $(INCLUDES) $< -o $@
 	@printf "$(GREEN)[$(NAME)] Compiling [$@]\n$(RESET)"

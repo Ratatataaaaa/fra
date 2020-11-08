@@ -6,7 +6,7 @@
 #    By: cwing <cwing@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/11 21:41:01 by cwing             #+#    #+#              #
-#    Updated: 2020/11/08 17:54:23 by cwing            ###   ########.fr        #
+#    Updated: 2020/11/08 20:29:21 by cwing            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,13 +27,15 @@ INCLUDES_DIRECTORY = ./includes/
 INCLUDES_DIRECTORY_LIBFT = $(LIBFT_DIRECTORY)includes/
 INCLUDES = -I $(INCLUDES_DIRECTORY) -I $(INCLUDES_DIRECTORY_LIBFT)
 HEADERS = $(addprefix $(INCLUDES_DIRECTORY), $(HEADERS_LIST))
+
 HEADERS_LIST = fractol.h \
 	colorlist.h \
 	keyhot.h
 
 SRC_DIRECTORY = ./src/
-SRC_LIST = complex_penitrator.c \
-	complex_penitrator1.c \
+SRC_LIST = complex_math1.c \
+	complex_math2.c \
+	complex_math3.c \
 	color_list.c \
 	init_mlx.c \
 	main.c \

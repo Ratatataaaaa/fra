@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   complex_penitrator.c                               :+:      :+:    :+:   */
+/*   complex_math2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:38:46 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/07 15:28:36 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/08 20:17:10 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-t_complex		mlt_complex(t_complex a, t_complex b)
-{
-	t_complex	z;
-
-	z.real = (a.real * b.real - a.imag * b.imag);
-	z.imag = (a.real * b.imag + a.imag * b.real);
-	return (z);
-}
 
 t_complex		add_complex(t_complex a, t_complex b)
 {
