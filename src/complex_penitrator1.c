@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 17:45:29 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/07 17:11:21 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/08 18:47:02 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,20 @@ double			factor(double n)
 	return (n < 2) ? 1 : n * factor(n - 1);
 }
 
+void			chet_check(bool *chet, double *ret, double temp, bool znak)
+{
+	if (znak)
+	{
+		*ret = (*chet) ? *ret + temp : *ret - temp;
+		*chet = !(*chet);
+	}
+	else
+	{
+		*ret = (*chet) ? *ret - temp : *ret + temp;
+		*chet = !(*chet);
+	}
+}
+
 t_complex		pow_complex(t_complex a, int power)
 {
 	t_complex	ret;
@@ -81,15 +95,9 @@ t_complex		pow_complex(t_complex a, int power)
 		ex_c = factor(power) / (factor(power - iter) * factor(power - (power - iter)));
 		temp = ex_c * pow(a.real, power - iter) * pow(a.imag, iter);
 		if (iter % 2 == 1)
-		{
-			ret.imag = (chet[1]) ? ret.imag + temp : ret.imag - temp;
-			chet[1] = !chet[1];
-		}
+			chet_check(&chet[1], &ret.imag, temp, true);
 		else
-		{
-			ret.real = (chet[0]) ? ret.real - temp : ret.real + temp;
-			chet[0] = !chet[0];
-		}
+			chet_check(&chet[0], &ret.real, temp, false);
 	}
 	if (power % 2 == 1)
 		ret.imag += (chet[1]) ? pow(a.imag, power) : -pow(a.imag, power);

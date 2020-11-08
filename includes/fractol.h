@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 21:47:25 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/07 16:35:05 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/08 18:23:10 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@
 
 # define MAND 1
 # define SHIP 2
-# define NEWTON 3
-# define JULIA 4
+# define JULIA 3
+# define NEWTON 4
 
 # define X0 (WIDTH_WIN - WIDTH_MENU) / 2
 # define Y0 HEIGHT_WIN / 2
 
 typedef struct		s_pixel
 {
-	uint8_t			red;
-	uint8_t			green;
 	uint8_t			blue;
+	uint8_t			green;
+	uint8_t			red;
 	uint8_t			alfa;
 }					t_pixel;
 

@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 21:56:30 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/07 17:21:38 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/08 18:09:59 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void		pars_frctl(char *av, t_frac *f)
 		error_exit("\033[0;32;1mOh... sorry.\nUse parametr:\033[0m\n\
 		[mand]\n\
 		[julia]\n\
+		[newton]\n\
 		[ship]");
 	}
 	calc_plur(f);
@@ -79,6 +80,7 @@ int			main(int ac, char **av)
 		error_exit("\033[0;32;1mOh... sorry.\nUse parametr:\033[0m\n\
 		[mand]\n\
 		[julia]\n\
+		[newton]\n\
 		[ship]");
 	return (0);
 }

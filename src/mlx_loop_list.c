@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:28:46 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/07 15:21:39 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/08 18:35:28 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,13 @@ void		swap_plur(t_frac *f, int key)
 	if ((key == KEY_Z) && (f->type_fract != MAND))
 	{
 		f->type_fract -= 1;
+		free(f->colors);
 		what_init(f);
 	}
-	else if ((key == KEY_X) && (f->type_fract != JULIA))
+	else if ((key == KEY_X) && (f->type_fract != NEWTON))
 	{
 		f->type_fract += 1;
+		free(f->colors);
 		what_init(f);
 	}
 	calc_plur(f);

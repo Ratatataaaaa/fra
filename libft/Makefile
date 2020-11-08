@@ -6,7 +6,7 @@
 #    By: cwing <cwing@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/07 21:57:42 by cwing             #+#    #+#              #
-#    Updated: 2020/11/06 13:09:41 by cwing            ###   ########.fr        #
+#    Updated: 2020/11/08 17:54:10 by cwing            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,24 +109,25 @@ all: $(NAME)
 $(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS)
 	@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
-	@echo "\n$(NAME): $(GREEN)Созданы объектные файлы$(RESET)"
-	@echo "$(NAME): $(GREEN)$(NAME) Был создан$(RESET)"
+	@printf "$(GREEN)[$(NAME)] Compiling successfuly! [OK]\n"
 
 $(OBJECTS_DIRECTORY):
 	@mkdir -p $(OBJECTS_DIRECTORY)
-	@echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) Был создан$(RESET)"
+	@printf "$(GREEN)[$(NAME)] Make OBG dir $(OBJECTS_DIRECTORY) successfuly! [OK]\n"
 
 $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
+	@printf "$(RED)[$(NAME)] Compiling [...]\r"
 	@$(CC) $(FLAGS) $(INCLUDES) $< -o $@
-	@echo "$(GREEN).$(RESET)\c"
+	@printf "$(GREEN)[$(NAME)] Compiling [$@]\n$(RESET)"
 
 clean:
 	@rm -rf $(OBJECTS_DIRECTORY)
-	@echo "$(NAME): $(RED)Объектные файлы были удалены$(RESET)"
+	@printf "$(RED)[$(NAME)] Delete object files successfuly! [OK]\n"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(NAME): $(RED)$(NAME) Был удален$(RESET)"
+	@printf "$(RED)[$(NAME)] Delete library $(NAME) successfuly! [OK]\n"
+	
 
 re:
 	@$(MAKE) fclean

@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:48:44 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/07 17:11:24 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/08 18:17:15 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void				newton_calc(t_cord crd, t_frac *f, t_complex c)
 				mlt_complex((t_complex){0.2, 0}, pow_complex(c, -4)));
 			i++;
 		}
-		put_pixel(crd.x, crd.y, f, f->colors[i]);
+		if (i == 0)
+			put_pixel(crd.x, crd.y, f, COLOR_BLACK);
+		else
+			put_pixel(crd.x, crd.y, f, f->colors[i - 1]);
 	}
 }
 

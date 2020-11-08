@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:27:49 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/07 16:44:44 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/08 18:18:58 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void		init_newt(t_frac *ptr)
 	ptr->max_iter = 80;
 	ptr->color.plural = COLOR_BLACK;
 	ptr->color.start = COLOR_GOLD;
-	ptr->color.final = COLOR_DARKTURQUIOSE;
+	ptr->color.final = COLOR_BLACK;
 	ptr->colors = NULL;
 	ptr->colors = cache_colors(ptr);
 }
