@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pars_frctl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:48:44 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/08 18:17:15 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/09 03:56:49 by kain2250         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,8 @@ void				complex_while(t_frac *f, t_complex z, t_complex c,
 					t_cord crd)
 {
 	double			len_vect;
-	register int	i;
 
 	f->iter = 0;
-	i = 0;
 	len_vect = 1;
 	if (f->type_fract == NEWTON)
 	{

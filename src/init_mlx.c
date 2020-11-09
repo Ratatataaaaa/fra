@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:27:49 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/08 18:18:58 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/09 08:06:20 by kain2250         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@ void		init_mand(t_frac *ptr)
 	ptr->cur_y = 0;
 	ptr->zx = 0;
 	ptr->zy = 0;
-	ptr->max_iter = 50;
+	ptr->max_iter = 100;
 	ptr->start_iter = 0;
+	ptr->dev_iter = ptr->max_iter / 2;
 	ptr->color.plural = COLOR_BLACK;
-	ptr->color.start = COLOR_DARKTURQUIOSE;
-	ptr->color.final = COLOR_GOLD;
+	ptr->color.start = COLOR_ORANG;
+	ptr->color.one = COLOR_GOLD;
+	ptr->color.two = COLOR_DARKTURQUIOSE;
+	ptr->color.final = COLOR_PURPUR;
 	ptr->colors = NULL;
 	ptr->colors = cache_colors(ptr);
 }
@@ -37,13 +40,14 @@ void		init_ship(t_frac *ptr)
 	ptr->cx = -(WIDTH_WIN - WIDTH_MENU) / 2 / ptr->zoom - 0.5;
 	ptr->cy = -HEIGHT_MENU / 2 / ptr->zoom - 0.5;
 	ptr->cur_y = 0;
-	ptr->max_iter = 50;
+	ptr->max_iter = 100;
+	ptr->dev_iter = ptr->max_iter / 2;
 	ptr->zx = 0;
 	ptr->zy = 0;
 	ptr->start_iter = 0;
 	ptr->color.plural = COLOR_BLACK;
-	ptr->color.start = COLOR_DARKTURQUIOSE;
-	ptr->color.final = COLOR_GOLD;
+	ptr->color.start = COLOR_ORANG;
+	ptr->color.final = COLOR_PURPUR;
 	ptr->colors = NULL;
 	ptr->colors = cache_colors(ptr);
 }
@@ -67,19 +71,23 @@ void		init_newt(t_frac *ptr)
 void		init_juli(t_frac *ptr)
 {
 	ptr->type_fract = JULIA;
-	ptr->zoom = 300.00;
+	ptr->zoom = 500.00;
 	ptr->cx = -0.63;
 	ptr->cy = -0.54;
 	ptr->jx = -(WIDTH_WIN - WIDTH_MENU) / 2 / ptr->zoom;
 	ptr->jy = -HEIGHT_MENU / 2 / ptr->zoom;
 	ptr->start_iter = 0;
-	ptr->max_iter = 40;
+	ptr->max_iter = 100;
+	ptr->dev_iter = ptr->max_iter / 2;
 	ptr->cur_y = 0;
 	ptr->zx = 0;
 	ptr->zy = 0;
-	ptr->color.plural = COLOR_BLACK;
-	ptr->color.start = COLOR_DARKTURQUIOSE;
-	ptr->color.final = COLOR_GOLD;
+	ptr->color.plural = COLOR_BLACK;//(t_pixel){255, 255, 255, 0};
+	ptr->color.start = COLOR_ORANG;
+	ptr->color.final = COLOR_PURPUR;
+
+	// ptr->color.start = (t_pixel){0, 0, 0, 1};
+	// ptr->color.final = (t_pixel){255, 255, 255, 1};
 	ptr->colors = NULL;
 	ptr->colors = cache_colors(ptr);
 }

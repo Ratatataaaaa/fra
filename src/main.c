@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 21:56:30 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/08 18:09:59 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/09 07:09:45 by kain2250         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,32 @@ void		error_exit(char *str)
 	exit(0);
 }
 
+void		cache_colors2(int bufer_iter, bool vec, t_frac *f)
+{
+	int		iter;
+	int		iter_j = f->dev_iter;
+
+	if (bufer_iter > f->max_iter)
+		return ;
+	iter = 0;
+	while (iter <= f->dev_iter)
+	{
+		if (vec)
+		{
+			f->colors[bufer_iter] = get_color(iter, f->color.start, f->color.final, f, true);
+		}
+		else
+		{
+			f->colors[bufer_iter] = get_color(iter_j, f->color.start, f->color.final, f, true);
+		}
+		++bufer_iter;
+		++iter;
+		--iter_j;
+	}
+	f->dev_iter = f->dev_iter / 2;
+	cache_colors2 (bufer_iter, !vec, f);
+}
+
 t_pixel		*cache_colors(t_frac *f)
 {
 	int		i;
@@ -53,15 +79,49 @@ t_pixel		*cache_colors(t_frac *f)
 	}
 	if (f->colors)
 	{
-		while (i < f->max_iter)
-		{
-			f->colors[i] = get_color(i, f->color.start, f->color.final, f);
-			++i;
-		}
+		// int	temp = f->max_iter / 2;
+		// int reset = temp;
+		// int reset2 = f->max_iter;
+
+		
+		cache_colors2 (0, true, f);
+		
 	}
 	f->colors_size = f->max_iter;
 	return (f->colors);
 }
+
+// {
+// 	int		i;
+
+// 	i = 0;
+// 	if (f->colors == NULL)
+// 		f->colors = (t_pixel *)malloc(sizeof(t_pixel) * f->max_iter);
+// 	if (f->colors_size != f->max_iter)
+// 	{
+// 		free(f->colors);
+// 		f->colors = (t_pixel *)malloc(sizeof(t_pixel) * f->max_iter);
+// 	}
+// 	if (f->colors)
+// 	{
+// 		int	temp = f->max_iter / 2;
+// 		int reset = temp;
+// 		int reset2 = f->max_iter;
+
+// 		while (i < f->max_iter)
+// 		{
+// 			if (i < temp)
+// 				f->colors[i] = get_color(i, f->color.start, f->color.final, f, 1);
+// 			else if (i > temp && i < temp + temp / 2)
+// 				f->colors[i] = get_color(i, f->color.start, f->color.final, f, 2);
+// 			else
+// 				f->colors[i] = get_color(i, f->color.start, f->color.final, f, 3);
+// 			++i;
+// 		}
+// 	}
+// 	f->colors_size = f->max_iter;
+// 	return (f->colors);
+// }
 
 int			main(int ac, char **av)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_loop_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:28:46 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/08 18:35:28 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/09 07:23:49 by kain2250         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		key_img_move(t_frac *f, int key)
 
 void		iter_plus(t_frac *f, int key)
 {
-	if (key == KEY_BRACKETCLOSE)
+	if (key == KEY_BRACKETCLOSE || key == 91)
 		f->max_iter += 10;
 	else
 		f->max_iter -= 10;
@@ -74,22 +74,22 @@ void		key_z_move(t_frac *f, int key)
 {
 	if (f->type_fract != JULIA)
 	{
-		if (key == KEY_S)
+		if (key == 115)
 			f->zy -= f->range_move;
-		else if (key == KEY_W)
+		else if (key == 119)
 			f->zy += f->range_move;
-		else if (key == KEY_D)
+		else if (key == 100)
 			f->zx -= f->range_move;
 		else
 			f->zx += f->range_move;
 	}
 	else
 	{
-		if (key == KEY_S)
+		if (key == 115)
 			f->cy -= f->range_move;
-		else if (key == KEY_W)
+		else if (key == 119)
 			f->cy += f->range_move;
-		else if (key == KEY_D)
+		else if (key == 100)
 			f->cx -= f->range_move;
 		else
 			f->cx += f->range_move;

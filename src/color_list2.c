@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color_list2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 21:12:26 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/08 18:29:27 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/09 05:58:32 by kain2250         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int			find_color(t_frac *f, t_cord crd)
 {
 	if (f->iter == f->max_iter)
 	{
-		put_pixel(crd.x, crd.y, f, f->color.plural);
+		put_pixel(crd.x, crd.y, f, f->color.final);
 		return (1);
 	}
 	else

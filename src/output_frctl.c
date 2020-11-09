@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   output_frctl.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:25:25 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/07 17:11:20 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/09 08:16:54 by kain2250         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ static uint8_t	get_light(uint8_t start, uint8_t end, double percentage)
 	return (ret);
 }
 
-t_pixel			get_color(int i, t_pixel start, t_pixel end, t_frac *f)
+t_pixel			get_color(int i, t_pixel start, t_pixel end, t_frac *f, int vec)
 {
 	t_pixel		pixel;
 	double		percentage;
-
-	percentage = ft_percent(f->start_iter, f->max_iter, i);
+	
+	
+	percentage = ft_percent(0, f->dev_iter, i);
 	pixel.red = get_light(start.red, end.red, percentage);
 	pixel.green = get_light(start.green, end.green, percentage);
 	pixel.blue = get_light(start.blue, end.blue, percentage);

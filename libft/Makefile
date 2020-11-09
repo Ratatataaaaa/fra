@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cwing <cwing@student.42.fr>                +#+  +:+       +#+         #
+#    By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/07 21:57:42 by cwing             #+#    #+#              #
-#    Updated: 2020/11/08 20:25:34 by cwing            ###   ########.fr        #
+#    Updated: 2020/11/09 03:40:15 by kain2250         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -c
+FLAGS = -Wall -Wextra  -c
 INCLUDES = -I$(HEADERS_DIRECTORY)
 HEADERS_LIST = libft.h\
 	get_next_line.h\

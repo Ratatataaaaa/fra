@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_hook2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
+/*   By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 16:48:13 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/07 16:45:28 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/09 07:20:24 by kain2250         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ int			mouse_move(int x, int y, void *param)
 
 void		keys0(int key, t_frac *f)
 {
-	if (key == KEY_ESC)
+	if (key == KEY_ESC || key == 65307)
 		close_win(f);
 	else if (key == KEY_ENTER)
 		open_win(f, f->name);
-	else if (key == KEY_SPASE)
+	else if (key == KEY_SPASE || key == 32)
 		spase_swich(f);
 	else if (key == KEY_Z || key == KEY_X)
 		swap_plur(f, key);
@@ -92,9 +92,9 @@ void		keys1(int key, t_frac *f)
 	else if (key == KEY_UP || key == KEY_DOWN || key == KEY_LEFT ||
 			key == KEY_RIGHT)
 		key_img_move(f, key);
-	else if (key == KEY_BRACKETOP || key == KEY_BRACKETCLOSE)
+	else if (key == KEY_BRACKETOP || key == KEY_BRACKETCLOSE || key == 93 || key == 91)
 		iter_plus(f, key);
-	else if (key == KEY_A || key == KEY_S || key == KEY_D || key == KEY_W)
+	else if (key == 119 || key == 115 || key == 100 || key == 97)
 		key_z_move(f, key);
 	else if (key == KEY_Q || key == KEY_E)
 		thread_plus(f, key);
@@ -105,6 +105,7 @@ int			key_press(int key, void *param)
 	t_frac	*f;
 
 	f = (t_frac *)param;
+	printf("%d\n", key);
 	keys0(key, f);
 	keys1(key, f);
 	return (0);
