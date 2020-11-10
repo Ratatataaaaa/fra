@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 21:47:25 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/09 08:05:08 by kain2250         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:51:19 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 # include <pthread.h>
 # include <limits.h>
 
-# define WIDTH_WIN 2000
-# define HEIGHT_WIN 1300
+# define WIDTH_WIN 1300
+# define HEIGHT_WIN 700
 # define WIDTH_MENU 250
 # define HEIGHT_MENU HEIGHT_WIN
 
@@ -108,7 +108,7 @@ typedef struct		s_frac
 	void			*ptr;
 	void			*win;
 	void			*img;
-	uint8_t			*data_addr;
+	char			*data_addr;
 	int				bp_pix;
 	int				size_line;
 	int				endian;
@@ -153,7 +153,7 @@ typedef struct		s_frac
 
 int					main(int ac, char **av);
 void				error_exit(char *str);
-t_pixel				*cache_colors(t_frac *f);
+void				cache_colors(t_frac *f);
 void				thread_plus(t_frac *f, int key);
 
 void				ch_start_color(t_frac *f, int key);
@@ -201,7 +201,7 @@ void				swap_plur(t_frac *f, int key);
 void				key_z_move(t_frac *f, int key);
 void				mlx_loop_list(t_frac *f);
 
-t_pixel				get_color(int i, t_pixel start, t_pixel end, t_frac *f, int vec);
+t_pixel				get_color(int i, t_pixel start, t_pixel end, t_frac *f);
 void				put_pixel(int x, int y, t_frac *f, t_pixel color);
 void				zero_back(t_frac *f, int menu_or_img);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_hook2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 16:48:13 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/09 07:20:24 by kain2250         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:52:28 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void		keys1(int key, t_frac *f)
 		ch_menu_color(f, key);
 		ch_final_color(f, key);
 		ch_start_color(f, key);
-		f->colors = cache_colors(f);
 		calc_plur(f);
 	}
 	else if (key == KEY_1 || key == KEY_2 || key == KEY_3 || key == KEY_4)
@@ -102,11 +101,7 @@ void		keys1(int key, t_frac *f)
 
 int			key_press(int key, void *param)
 {
-	t_frac	*f;
-
-	f = (t_frac *)param;
-	printf("%d\n", key);
-	keys0(key, f);
-	keys1(key, f);
+	keys0(key, (t_frac *)param);
+	keys1(key, (t_frac *)param);
 	return (0);
 }

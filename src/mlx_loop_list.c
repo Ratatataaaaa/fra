@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_loop_list.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:28:46 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/09 07:23:49 by kain2250         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:52:28 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void		iter_plus(t_frac *f, int key)
 		f->max_iter = 10;
 	if (f->max_iter > INT_MAX)
 		f->max_iter = INT_MAX;
-	f->colors = cache_colors(f);
 	calc_plur(f);
 }
 
@@ -58,15 +57,12 @@ void		swap_plur(t_frac *f, int key)
 	if ((key == KEY_Z) && (f->type_fract != MAND))
 	{
 		f->type_fract -= 1;
-		free(f->colors);
-		what_init(f);
 	}
 	else if ((key == KEY_X) && (f->type_fract != NEWTON))
 	{
 		f->type_fract += 1;
-		free(f->colors);
-		what_init(f);
 	}
+	what_init(f);
 	calc_plur(f);
 }
 

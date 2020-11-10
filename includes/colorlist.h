@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colorlist.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 19:51:36 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/09 07:53:05 by kain2250         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:52:28 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,9 @@
 
 # define COLOR_PURPUR (t_pixel){54, 2, 115, 1}
 # define COLOR_ORANG (t_pixel){247, 231, 169, 1}
+# define COLOR_DARKRED (t_pixel){122, 66, 92, 1}
+# define COLOR_BBLUE (t_pixel){128, 199, 224, 1}
+# define COLOR_GREENL (t_pixel){37, 164, 239, 1}
+# define COLOR_GREENQ (t_pixel){13, 26, 39, 1}
 
 #endif
