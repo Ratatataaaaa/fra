@@ -3,21 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+         #
+#    By: cwing <cwing@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/11 21:41:01 by cwing             #+#    #+#              #
-#    Updated: 2020/11/09 03:52:31 by kain2250         ###   ########.fr        #
+#    Updated: 2020/11/10 19:52:28 by cwing            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
 CC = gcc
-CCFLAGS = -Wall -Wextra 
+CCFLAGS = -Wall -Wextra -g
 FLAGS = -O3
 
 LIBFT = $(LIBFT_DIRECTORY)libft.a
-MINILIBX_DIRECTORY = /usr/local/lib/
+MINILIBX_DIRECTORY = /Library/minilibx_mac
 LIBFT_DIRECTORY = ./libft/
 
 LIBRARIES_MAC = -lpthread -lmlx -lm -lft -L$(LIBFT_DIRECTORY) -L$(MINILIBX_DIRECTORY) -framework OpenGL -framework AppKit
@@ -63,7 +63,7 @@ RESET = \033[0m
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJ_DIR) $(OBJECTS)
-	@$(CC) $(CCFLAGS) $(FLAGS) $(OBJECTS) -o $(NAME) $(LIBRARIES_UBUNTU) $(INCLUDES)
+	@$(CC) $(CCFLAGS) $(FLAGS) $(OBJECTS) -o $(NAME) $(LIBRARIES_MAC) $(INCLUDES)
 	@printf "$(GREEN)[$(NAME)] Make executable file $(NAME) successfuly! [OK]\n$(RESET)"
 
 $(OBJ_DIR):

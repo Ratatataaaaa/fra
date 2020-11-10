@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   output_frctl.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:25:25 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/09 08:16:54 by kain2250         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:52:28 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static uint8_t	get_light(uint8_t start, uint8_t end, double percentage)
 	return (ret);
 }
 
-t_pixel			get_color(int i, t_pixel start, t_pixel end, t_frac *f, int vec)
+t_pixel			get_color(int i, t_pixel start, t_pixel end, t_frac *f)
 {
 	t_pixel		pixel;
 	double		percentage;

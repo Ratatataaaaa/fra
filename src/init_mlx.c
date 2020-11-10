@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+        */
+/*   By: By: bdrinkin and cwing                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:27:49 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/09 08:06:20 by kain2250         ###   ########.fr       */
+/*   Updated: 2020/11/10 17:16:47 by             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,9 @@ void		init_mand(t_frac *ptr)
 	ptr->max_iter = 100;
 	ptr->start_iter = 0;
 	ptr->dev_iter = ptr->max_iter / 2;
-	ptr->color.plural = COLOR_BLACK;
-	ptr->color.start = COLOR_ORANG;
-	ptr->color.one = COLOR_GOLD;
-	ptr->color.two = COLOR_DARKTURQUIOSE;
-	ptr->color.final = COLOR_PURPUR;
+	ptr->color.start = COLOR_GREENL;
+	ptr->color.final = COLOR_BLACK;
 	ptr->colors = NULL;
-	ptr->colors = cache_colors(ptr);
 }
 
 void		init_ship(t_frac *ptr)
@@ -45,11 +41,9 @@ void		init_ship(t_frac *ptr)
 	ptr->zx = 0;
 	ptr->zy = 0;
 	ptr->start_iter = 0;
-	ptr->color.plural = COLOR_BLACK;
-	ptr->color.start = COLOR_ORANG;
-	ptr->color.final = COLOR_PURPUR;
+	ptr->color.start = COLOR_GREENL;
+	ptr->color.final = COLOR_BLACK;
 	ptr->colors = NULL;
-	ptr->colors = cache_colors(ptr);
 }
 
 void		init_newt(t_frac *ptr)
@@ -60,12 +54,10 @@ void		init_newt(t_frac *ptr)
 	ptr->zoom = 0.005;
 	ptr->eps = 0.1;
 	ptr->dpi = M_PI / 5;
-	ptr->max_iter = 80;
-	ptr->color.plural = COLOR_BLACK;
-	ptr->color.start = COLOR_GOLD;
+	ptr->max_iter = 300;
+	ptr->color.start = COLOR_GREENL;
 	ptr->color.final = COLOR_BLACK;
 	ptr->colors = NULL;
-	ptr->colors = cache_colors(ptr);
 }
 
 void		init_juli(t_frac *ptr)
@@ -82,14 +74,9 @@ void		init_juli(t_frac *ptr)
 	ptr->cur_y = 0;
 	ptr->zx = 0;
 	ptr->zy = 0;
-	ptr->color.plural = COLOR_BLACK;//(t_pixel){255, 255, 255, 0};
-	ptr->color.start = COLOR_ORANG;
-	ptr->color.final = COLOR_PURPUR;
-
-	// ptr->color.start = (t_pixel){0, 0, 0, 1};
-	// ptr->color.final = (t_pixel){255, 255, 255, 1};
+	ptr->color.start = COLOR_GREENL;
+	ptr->color.final = COLOR_BLACK;
 	ptr->colors = NULL;
-	ptr->colors = cache_colors(ptr);
 }
 
 void		init_mlx(t_frac *ptr, char *av)
@@ -110,7 +97,6 @@ void		init_mlx(t_frac *ptr, char *av)
 	&(ptr->menu.bp_pix), &(ptr->menu.size_line), &(ptr->menu.endian));
 	ptr->color.inter = 1;
 	ptr->range_move = 0.01;
-	ptr->max_iter = 50;
 	ptr->threads = 16;
 	ptr->clr_sw.red = -1;
 	ptr->clr_sw.blue = -1;
@@ -118,5 +104,7 @@ void		init_mlx(t_frac *ptr, char *av)
 	ptr->clr_sw.start = -1;
 	ptr->clr_sw.plural = -1;
 	ptr->clr_sw.final = -1;
+	ptr->color.start = COLOR_GREENL;
+	ptr->color.final = COLOR_BLACK;
 	ptr->type_fract = MAND;
 }

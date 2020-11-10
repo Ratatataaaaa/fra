@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kain2250 <kain2250@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 21:56:30 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/09 07:09:45 by kain2250         ###   ########.fr       */
+/*   Updated: 2020/11/10 19:52:29 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,89 +39,48 @@ void		error_exit(char *str)
 	exit(0);
 }
 
-void		cache_colors2(int bufer_iter, bool vec, t_frac *f)
+void		cache_colors2(bool vec, t_frac *f)
 {
 	int		iter;
-	int		iter_j = f->dev_iter;
+	int		finish = f->max_iter / 2;
+	int		border;
+	int 	start;
 
-	if (bufer_iter > f->max_iter)
-		return ;
 	iter = 0;
-	while (iter <= f->dev_iter)
+	start = 0;
+	border = finish;
+	f->dev_iter = border;
+	while (iter < f->max_iter)
 	{
 		if (vec)
-		{
-			f->colors[bufer_iter] = get_color(iter, f->color.start, f->color.final, f, true);
-		}
+			f->colors[iter] = get_color(start, f->color.start, f->color.final, f);
 		else
+			f->colors[iter] = get_color(finish, f->color.start, f->color.final, f);
+		++start;
+		--finish;
+		if (iter == border)
 		{
-			f->colors[bufer_iter] = get_color(iter_j, f->color.start, f->color.final, f, true);
+			vec = !vec;
+			f->dev_iter /= 2;
+			border += f->dev_iter;
+			start = 0;
+			finish = f->dev_iter;
 		}
-		++bufer_iter;
 		++iter;
-		--iter_j;
 	}
-	f->dev_iter = f->dev_iter / 2;
-	cache_colors2 (bufer_iter, !vec, f);
+	f->dev_iter = f->max_iter / 2;
 }
 
-t_pixel		*cache_colors(t_frac *f)
+void		cache_colors(t_frac *f)
 {
-	int		i;
-
-	i = 0;
-	if (f->colors == NULL)
-		f->colors = (t_pixel *)malloc(sizeof(t_pixel) * f->max_iter);
-	if (f->colors_size != f->max_iter)
-	{
+	if (f->colors != NULL)
 		free(f->colors);
-		f->colors = (t_pixel *)malloc(sizeof(t_pixel) * f->max_iter);
-	}
-	if (f->colors)
-	{
-		// int	temp = f->max_iter / 2;
-		// int reset = temp;
-		// int reset2 = f->max_iter;
-
-		
-		cache_colors2 (0, true, f);
-		
-	}
+	f->colors = (t_pixel *)malloc(sizeof(t_pixel) * f->max_iter);
+	f->dev_iter = f->max_iter / 2;
+	cache_colors2 (true, f);	
 	f->colors_size = f->max_iter;
-	return (f->colors);
+	
 }
-
-// {
-// 	int		i;
-
-// 	i = 0;
-// 	if (f->colors == NULL)
-// 		f->colors = (t_pixel *)malloc(sizeof(t_pixel) * f->max_iter);
-// 	if (f->colors_size != f->max_iter)
-// 	{
-// 		free(f->colors);
-// 		f->colors = (t_pixel *)malloc(sizeof(t_pixel) * f->max_iter);
-// 	}
-// 	if (f->colors)
-// 	{
-// 		int	temp = f->max_iter / 2;
-// 		int reset = temp;
-// 		int reset2 = f->max_iter;
-
-// 		while (i < f->max_iter)
-// 		{
-// 			if (i < temp)
-// 				f->colors[i] = get_color(i, f->color.start, f->color.final, f, 1);
-// 			else if (i > temp && i < temp + temp / 2)
-// 				f->colors[i] = get_color(i, f->color.start, f->color.final, f, 2);
-// 			else
-// 				f->colors[i] = get_color(i, f->color.start, f->color.final, f, 3);
-// 			++i;
-// 		}
-// 	}
-// 	f->colors_size = f->max_iter;
-// 	return (f->colors);
-// }
 
 int			main(int ac, char **av)
 {

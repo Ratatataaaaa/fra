@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 17:29:15 by cwing             #+#    #+#             */
-/*   Updated: 2020/11/07 14:27:48 by cwing            ###   ########.fr       */
+/*   Updated: 2020/11/10 19:52:29 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void			calc_plur(t_frac *f)
 
 	i = -1;
 	w_w = WIDTH_WIN - WIDTH_MENU;
+	cache_colors(f);
 	while (++i < f->threads)
 	{
 		ft_memcpy((void *)&cur[i], (void *)f, sizeof(t_frac));
