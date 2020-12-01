@@ -6,7 +6,7 @@
 /*   By: cwing <cwing@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 21:12:26 by cwing             #+#    #+#             */
-/*   Updated: 2020/12/01 13:54:56 by cwing            ###   ########.fr       */
+/*   Updated: 2020/12/01 14:09:44 by cwing            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int			find_color(t_frac *f, t_cord crd)
 {
 	if (f->iter == f->max_iter)
 	{
-		put_pixel(crd.x, crd.y, f, COLOR_BLACK);
+		put_pixel(crd.x, crd.y, f, COLOR_PURPUR);
 		return (1);
 	}
 	else
