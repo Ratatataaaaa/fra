@@ -6,7 +6,7 @@
 #    By: cwing <cwing@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/11 21:41:01 by cwing             #+#    #+#              #
-#    Updated: 2020/11/10 19:52:28 by cwing            ###   ########.fr        #
+#    Updated: 2020/12/19 18:16:33 by cwing            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,7 @@ $(OBJ_DIR):
 $(OBJ_DIR)%.o : $(SRC_DIRECTORY)%.c $(HEADERS)
 	@printf "$(RED)[$(NAME)] Compiling [...]\r$(RESET)"
 	@$(CC) $(CCFLAGS) $(FLAGS) $(INCLUDES) -c $< -o $@
-	@printf "$(GREEN)[$(NAME)] Compiling [$@]\n$(RESET)"
+	@printf "$(GREEN)[$(NAME)] Compiling [$@]\x7\n$(RESET)"
 
 $(LIBFT):
 	@printf "$(GREEN)[$(NAME)] Make $(LIBFT) [OK]\n$(RESET)"
@@ -93,3 +93,6 @@ fclean: clean
 re:
 	@$(MAKE) fclean
 	@$(MAKE) all
+
+#comment commit
+
