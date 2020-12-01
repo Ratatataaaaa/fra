@@ -24,8 +24,8 @@ void		init_mand(t_frac *ptr)
 	ptr->max_iter = 100;
 	ptr->start_iter = 0;
 	ptr->dev_iter = ptr->max_iter / 2;
-	ptr->color.start = COLOR_GREENL;
-	ptr->color.final = COLOR_BLACK;
+	ptr->color.start = COLOR_ORANG;
+	ptr->color.final = COLOR_DARKRED;
 	ptr->colors = NULL;
 }
 
@@ -41,8 +41,8 @@ void		init_ship(t_frac *ptr)
 	ptr->zx = 0;
 	ptr->zy = 0;
 	ptr->start_iter = 0;
-	ptr->color.start = COLOR_GREENL;
-	ptr->color.final = COLOR_BLACK;
+	ptr->color.start = COLOR_ORANG;
+	ptr->color.final = COLOR_DARKRED;
 	ptr->colors = NULL;
 }
 
@@ -55,8 +55,8 @@ void		init_newt(t_frac *ptr)
 	ptr->eps = 0.1;
 	ptr->dpi = M_PI / 5;
 	ptr->max_iter = 300;
-	ptr->color.start = COLOR_GREENL;
-	ptr->color.final = COLOR_BLACK;
+	ptr->color.start = COLOR_ORANG;
+	ptr->color.final = COLOR_DARKRED;
 	ptr->colors = NULL;
 }
 
@@ -74,8 +74,8 @@ void		init_juli(t_frac *ptr)
 	ptr->cur_y = 0;
 	ptr->zx = 0;
 	ptr->zy = 0;
-	ptr->color.start = COLOR_GREENL;
-	ptr->color.final = COLOR_BLACK;
+	ptr->color.start = COLOR_ORANG;
+	ptr->color.final = COLOR_DARKRED;
 	ptr->colors = NULL;
 }
 
@@ -104,7 +104,7 @@ void		init_mlx(t_frac *ptr, char *av)
 	ptr->clr_sw.start = -1;
 	ptr->clr_sw.plural = -1;
 	ptr->clr_sw.final = -1;
-	ptr->color.start = COLOR_GREENL;
-	ptr->color.final = COLOR_BLACK;
+	ptr->color.start = COLOR_ORANG;
+	ptr->color.final = COLOR_DARKRED;
 	ptr->type_fract = MAND;
 }
